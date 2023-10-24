@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+/*barra in alto*/
+.navbar {
+    background-color: rgb(47, 49, 51);
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;       
+    text-decoration: none;
+    margin-right: 10px;
+}
+.navbar button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    line-height: 1; /* Imposta l'altezza della linea a 1 per evitare spazi vuoti */
+}
+
+.header {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    text-align: center;
+}
+
+.header h1 {
+    margin: 0;
+    color: rgb(44, 96, 175); /*colore titolo*/
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.header-content img {
+    width: 100px;
+    margin-right: 10px;
+}
+
+.content {
+    
+    justify-content: center;
+    align-items: center;
+}

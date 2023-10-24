@@ -1,0 +1,98 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Overview of all your published games: {{game.titolo}}</h1>
+
+<p>Chart of added games</p>
+<div style="max-width: 400px; margin_left:0 auto;">
+    <canvas id="myChart" height="300"></canvas>
+</div>
+<p>Chart of average rating games</p>
+<div style="max-width: 400px; margin_left: 0 auto;">
+    <canvas id="myChart2" height="100" width="100"></canvas>
+</div>
+
+    
+    
+    <canvas id="myChart" width="400" height="200"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Dati presi dalla tua funzione Python
+        var gamesData = {
+            {% for game, added in games_added.items %}
+                "{{ game.titolo }}": {{ added }},
+            {% endfor %}
+        };
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+
+        var labels = Object.keys(gamesData);
+        var data = Object.values(gamesData);
+
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Giocatori Aggiunti',
+                    data: data,
+                    fill: false,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        precision: 0
+                    }
+                }
+            }
+        });
+    </script>
+
+
+    <canvas id="myChart2" width="400" height="200"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        
+        // Dati presi dalla tua funzione Python
+        var gamesData = {
+            {% for game, rating in games_rating.items %}
+                "{{ game.titolo }}": {{ rating }},
+            {% endfor %}
+        };
+
+        var ctx = document.getElementById('myChart2').getContext('2d');
+
+        var labels = Object.keys(gamesData);
+        var data = Object.values(gamesData);
+
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'average rate',
+                    data: data,
+                    fill: false,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        precision: 0
+                    }
+                }
+            }
+        });
+    </script>
+
+
+{% endblock %}

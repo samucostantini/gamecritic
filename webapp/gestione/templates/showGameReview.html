@@ -1,0 +1,28 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Recensioni per il gioco: {{ game.nome }}</h1>
+
+    {% if reviews %}
+        <ul>
+            {% for review in reviews %}
+                <li>
+                    <strong>Giocatore:</strong> {{ review.player.name }} {{ review.player.surname }} age:{{review.player.age}}
+                    <br>
+                    <strong>Storia Narrazione:</strong> {{ review.plot_rating }}
+                    <br>
+                    <strong>Performance:</strong> {{ review.performance_rating }}
+                    <br>
+                    <strong>Gameplay:</strong> {{ review.gameplay_rating }}
+                    <br>
+                    <strong>Sonoro:</strong> {{ review.music_rating }}
+                    <br>
+                    <strong>Altro:</strong> {{ review.comment }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nessuna recensione disponibile per questo gioco.</p>
+    {% endif %}
+{% endblock %}

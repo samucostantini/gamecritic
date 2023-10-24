@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+        .game-card {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .game-card img {
+            max-width: 350px;
+            height: auto;
+            margin-right: 10px; /* Aggiunge spazio tra l'immagine e i dettagli */
+        }
+
+        .game-details {
+            flex: 1; /* Flessibile in modo da occupare lo spazio disponibile */
+        }
+
+        .game-title {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .review-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .review-button:hover {
+            background-color: #0056b3;
+        }
+        
+    </style>
+
+    <h1>Recommended Game</h1>
+    <p>based on your added games people seems to also love theese</p>
+
+    {%for game in games%}
+    <div class="row">
+        <div class="game-card">
+            <img src="{{ game.pict.url }}" alt="{{ game.titolo }}">
+            <div class="game-details">
+                <div class="game-title"><h1>{{ game.titolo }}</h1></div>
+                <p>by {{game.publisher.name}}</p>
+                <p>Category: {{ game.category }}</p>
+                <p>Price: {{ game.price }}</p>
+                <p>Recommended age: {{ game.age }}</p>
+                <p>{{ game.description }}</p>
+                <p>This game was added by {{n}} players </p>
+                <form method="get" action="/gestione/reviewGame/{{game.id}}">
+                    <button class="review-button" type="submit" name="review_game">Make a Review</button>
+                    <button class="review-button" type="submit" name="add_game">Add this game</button>
+                </form>
+            </div>
+        </div>
+    </div>
+   {%endfor%}
+   <h1>Recommended Game</h1>
+    <p>based on your most added category</p>
+    {%if rec_game%}
+    <div class="row">
+        <div class="game-card">
+            <img src="{{ rec_game.pict.url }}" alt="{{ rec_game.titolo }}">
+            <div class="game-details">
+                <div class="game-title"><h1>{{ rec_game.titolo }}</h1></div>
+                <p>by {{rec_game.publisher.name}}</p>
+                <p>Category: {{ rec_game.category }}</p>
+                <p>Price: {{ rec_game.price }}</p>
+                <p>Recommended age: {{ rec_game.age }}</p>
+                <p>{{ rec_game.description }}</p>
+                
+                <form method="get" action="/gestione/reviewGame/{{game.id}}">
+                    <button class="review-button" type="submit" name="review_game">Make a Review</button>
+                    <button class="review-button" type="submit" name="add_game">Add this game</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {%endif%}
+
+{%endblock%}

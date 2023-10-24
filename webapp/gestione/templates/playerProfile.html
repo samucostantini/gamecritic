@@ -1,0 +1,226 @@
+{% extends 'basebs.html' %}
+
+{% block content %}
+<style>
+
+  .container {
+    display: flex;
+    
+  }
+
+
+.game-card {
+        
+    display: inline-block;
+    
+    vertical-align: top;
+    border: 1px solid #a03030;
+    padding: 10px;
+    margin:10px;
+    max-width: 550px;
+    min-width: 550px;
+    max-height: 300px;
+    min-height: 300px;
+}
+
+.game-card img {
+    max-height: 250px;
+    max-width: 250px;
+    width: auto;
+    vertical-align: top; 
+    
+}
+
+.game-card-info {
+    display: inline-block;
+    
+    vertical-align: top; /* Allinea il testo in alto */
+    margin-left: 10px; /* Aggiu
+}
+
+.game-card h1 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+
+.col-md-3 {
+    flex: 2;
+}
+
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#search_query {
+    width: 300px; /* Larghezza della casella di ricerca */
+    padding: 10px; /* Spazio interno */
+    font-size: 16px; /* Dimensione del testo */
+}
+
+button[type="submitSearch"] {
+    background-color: #007BFF; /* Colore del pulsante */
+    color: #ffffff; /* Colore del testo */
+    border: none;
+    padding: 10px 20px; /* Spazio interno */
+    font-size: 16px; /* Dimensione del testo */
+    cursor: pointer;
+    margin-left: 10px; /* Spazio a sinistra del pulsante */
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Cambia colore al passaggio del mouse */
+}
+product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Spazio tra i prodotti */
+}
+
+.product {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+}
+.green-strip {
+    background-color: rgba(122,189,102,1);  /* Colore verde in esadecimale */
+    height: 50px; /* Altezza della striscia, modifica secondo le tue preferenze */
+    width: 100%; /* La striscia occupa tutta la larghezza disponibile */
+    display:flex;
+    gap: 20px; /* Spazio tra i prodotti */
+}
+.invisible-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  
+}
+.column {
+  display: flex;
+  align-items: center;
+}
+
+.game-card, button {
+  display: inline-block;
+  vertical-align: top;
+}
+.rating-circle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.rating-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+</style>
+<h1>Profile</h1>
+  
+<div class="player-profile">
+  <div class="player-image">
+    {% if player.pict %}
+      <img src="{{ player.pict.url }}" alt="{{ player.name }}">
+    {% else %}
+      <div class="no-image">Nessuna immagine disponibile</div>
+    {% endif %}
+  </div>
+  <div class="player-details">
+    <ul>
+      <li><strong>Name:</strong> {{ player.name }}</li>
+      <li><strong>Surname:</strong> {{ player.surname }}</li>
+      <li><strong>Age:</strong> {{ player.age }}</li>
+      <li><strong>Country:</strong> {{ player.country }}</li>
+      
+    </ul>
+  </div>
+</div>
+
+      added Games:
+      <div class="column">
+        {% for game in player.games.all %}
+            
+            
+                <div class="game-card">
+                    <img src="{{ game.pict.url }}" alt="{{ game.titolo }}">
+                    <div class="game-card-info">
+                        <h1>{{ game.titolo }}</h1>
+                        <p>Category: {{ game.category }}</p>
+                        <p>Price: {{ game.price }}</p>
+                        <div class="rating-circle" id="rating_circle_{{ game.id }}">
+                            <div class="rating-value"></div>
+                        </div>
+                        <form method="get" action="/gestione/view_game_details/{{game.id}}">
+                            <button type="submit">View</button>
+                        </form>
+
+
+                    </div>
+                </div>
+                <script>
+                    var plot = {{ game.average_plot_rating }};
+                    var perf = {{ game.average_performance_rating }};
+                    var music = {{ game.average_music_rating }};
+                    var gameplay = {{ game.average_gameplay_rating }};
+                    var totalRating = (plot + perf + music + gameplay) / 4;
+                    
+                    var ratingCircle = document.getElementById('rating_circle_{{ game.id }}');
+                    var ratingValue = totalRating.toFixed(2);
+
+                    var hue = (totalRating / 5) * 120;  // Scala il valore massimo a 120 (massimo per hsl)
+
+                    ratingCircle.style.backgroundColor = `hsl(${hue}, 50%, 70%)`;
+                    ratingCircle.querySelector('.rating-value').textContent = ratingValue;
+                </script>
+        {% endfor %}
+      </div>
+      <button onclick="previousGames()">Previous</button>
+      <button onclick="nextGames()">Next</button>
+  
+
+      <script>
+        var gameList = document.querySelectorAll('.game-card');
+        var currentIndex = 0;
+        var batchSize = 3;
+    
+        function showGames(startIndex) {
+            gameList.forEach(function(game, i) {
+                game.style.display = (i >= startIndex && i < startIndex + batchSize) ? 'block' : 'none';
+            });
+        }
+    
+        function previousGames() {
+            if (currentIndex >= batchSize) {
+                currentIndex -= batchSize;
+                showGames(currentIndex);
+            }
+        }
+    
+        function nextGames() {
+            if (currentIndex + batchSize < gameList.length) {
+                currentIndex += batchSize;
+                showGames(currentIndex);
+            }
+        }
+    
+        // Mostra i primi giochi all'avvio
+        showGames(currentIndex);
+    </script>
+
+  
+{% endblock %}

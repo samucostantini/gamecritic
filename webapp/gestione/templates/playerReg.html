@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %} Registrazione Player {% endblock %}
+
+{% block content %}
+    <p>Ciao {{ user.username }}</p>
+    <p>Before starting, we need to set up your player account.</p>
+    
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="registration_type" value="player">Registra come Player</button>
+    </form>
+{% endblock %}

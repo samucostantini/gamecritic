@@ -1,0 +1,1028 @@
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2023-10-20 16:30:49
+count workspace : c:\Users\samuele\Desktop\webAppreview\webapp
+total files : 183
+total code lines : 3455
+total comment lines : 130
+total blank lines : 1008
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |            .py|           1424|            118|            480|     41|
+   |          .html|           1823|             11|            498|     53|
+   |           .css|            208|              1|             30|    6.0|
+   -------------------------------------------------------------------------
+db.sqlite3, it is a binary file.
+game_img\campoBil.png, it is a binary file.
+game_img\SpaceShipRed.png, it is a binary file.
+game_img\SpaceShipRed_7t9osdR.png, it is a binary file.
+game_img\SpaceShipRed_RrQO6x3.png, it is a binary file.
+gestione\__init__.py, code is 0, comment is 0, blank is 0.
+gestione\__pycache__\__init__.cpython-39.pyc, it is a binary file.
+gestione\__pycache__\apps.cpython-39.pyc, it is a binary file.
+gestione\admin.py, code is 6, comment is 1, blank is 1.
+gestione\apps.py, code is 4, comment is 0, blank is 2.
+gestione\choices.py, code is 63, comment is 0, blank is 2.
+gestione\migrations\0001_initial.py, code is 48, comment is 1, blank is 6.
+gestione\migrations\0002_remove_persona_game_remove_persona_user_and_more.py, code is 28, comment is 1, blank is 5.
+gestione\migrations\0003_initial.py, code is 49, comment is 1, blank is 6.
+gestione\migrations\0004_remove_player_game_remove_player_user_and_more.py, code is 28, comment is 1, blank is 5.
+gestione\migrations\0005_initial.py, code is 49, comment is 1, blank is 6.
+gestione\migrations\0006_alter_game_category_review.py, code is 27, comment is 1, blank is 5.
+gestione\migrations\0007_alter_player_pict.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0008_alter_player_pict.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0009_alter_player_pict.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0010_alter_game_pict.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0011_alter_player_game.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0012_remove_player_game_player_game.py, code is 17, comment is 1, blank is 5.
+gestione\migrations\0013_remove_player_game_player_game.py, code is 16, comment is 1, blank is 5.
+gestione\migrations\0014_alter_player_game.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0015_remove_player_game_player_games.py, code is 16, comment is 1, blank is 5.
+gestione\migrations\0016_alter_player_games.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0017_alter_review_unique_together.py, code is 11, comment is 1, blank is 5.
+gestione\migrations\0018_rename_titolo_game_title.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0019_rename_title_game_titolo.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0020_remove_player_games_remove_player_user_and_more.py, code is 43, comment is 1, blank is 5.
+gestione\migrations\0021_initial.py, code is 71, comment is 1, blank is 6.
+gestione\migrations\0022_game_average_gameplay_rating_and_more.py, code is 37, comment is 1, blank is 5.
+gestione\migrations\0023_alter_game_console.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\__init__.py, code is 0, comment is 0, blank is 0.
+gestione\models.py, code is 71, comment is 5, blank is 23.
+gestione\static\css\style.css, code is 42, comment is 0, blank is 7.
+gestione\static\css\style2.css, code is 45, comment is 0, blank is 5.
+gestione\static\css\styles.css, code is 16, comment is 0, blank is 2.
+gestione\templates\addgamePub.html, code is 313, comment is 1, blank is 91.
+gestione\templates\analyticsGame.html, code is 101, comment is 0, blank is 24.
+gestione\templates\deleteReview.html, code is 12, comment is 0, blank is 2.
+gestione\templates\gamePage.html, code is 13, comment is 0, blank is 2.
+gestione\templates\gamePub.html, code is 16, comment is 0, blank is 2.
+gestione\templates\gameRecom.html, code is 13, comment is 0, blank is 2.
+gestione\templates\gameRegistration.html, code is 32, comment is 0, blank is 9.
+gestione\templates\home_player.html, code is 72, comment is 1, blank is 7.
+gestione\templates\home_publisher.html, code is 62, comment is 0, blank is 5.
+gestione\templates\myGames.html, code is 21, comment is 0, blank is 1.
+gestione\templates\newtzt.html, code is 285, comment is 1, blank is 93.
+gestione\templates\ok.html, code is 4, comment is 0, blank is 1.
+gestione\templates\playerProfile.html, code is 52, comment is 0, blank is 8.
+gestione\templates\playerReg.html, code is 11, comment is 0, blank is 4.
+gestione\templates\playerRegistration.html, code is 36, comment is 0, blank is 14.
+gestione\templates\publisherProfile.html, code is 11, comment is 1, blank is 2.
+gestione\templates\publisherReg.html, code is 11, comment is 0, blank is 4.
+gestione\templates\publisherRegistration.html, code is 16, comment is 0, blank is 5.
+gestione\templates\reviewGame.html, code is 41, comment is 6, blank is 15.
+gestione\templates\searchgames.html, code is 380, comment is 1, blank is 107.
+gestione\templates\showGameReview.html, code is 25, comment is 0, blank is 3.
+gestione\templates\specSearch.html, code is 25, comment is 0, blank is 17.
+gestione\templates\test.html, code is 26, comment is 0, blank is 3.
+gestione\tests.py, code is 1, comment is 1, blank is 1.
+gestione\urls.py, code is 34, comment is 5, blank is 12.
+gestione\utility.py, code is 133, comment is 3, blank is 57.
+gestione\views.py, code is 253, comment is 31, blank is 121.
+gestione\viewsPlayer.py, code is 78, comment is 8, blank is 50.
+gestione\viewsPublisher.py, code is 38, comment is 6, blank is 15.
+manage.py, code is 12, comment is 1, blank is 9.
+player_img\SpaceShipRed.png, it is a binary file.
+player_img\SpaceShipRed_phnxE2Y.png, it is a binary file.
+publisher_img\campoBil.png, it is a binary file.
+publisher_img\campoBil_1klO4Ic.png, it is a binary file.
+publisher_img\campoBil_3LsM0Iq.png, it is a binary file.
+publisher_img\campoBil_CWlqwkk.png, it is a binary file.
+publisher_img\campoBil_h90mvp7.png, it is a binary file.
+publisher_img\campoBil_hPGLbF5.png, it is a binary file.
+publisher_img\campoBil_Kud08Gq.png, it is a binary file.
+publisher_img\campoBil_LB7oJkw.png, it is a binary file.
+publisher_img\campoBil_Lt6saPC.png, it is a binary file.
+publisher_img\campoBil_pDwrqOF.png, it is a binary file.
+publisher_img\campoBil_Q7ZewTA.png, it is a binary file.
+publisher_img\campoBil_tAF1hgL.png, it is a binary file.
+publisher_img\campoBil_XnxRJFI.png, it is a binary file.
+publisher_img\packshot-pokemon-scarlet.png, it is a binary file.
+publisher_img\SpaceShipRed.png, it is a binary file.
+publisher_img\SpaceShipRed_3E7Xr2h.png, it is a binary file.
+publisher_img\SpaceShipRed_4e8496M.png, it is a binary file.
+publisher_img\SpaceShipRed_DQorRbF.png, it is a binary file.
+publisher_img\SpaceShipRed_dxeRYbd.png, it is a binary file.
+publisher_img\SpaceShipRed_fSkn2wO.png, it is a binary file.
+publisher_img\SpaceShipRed_k9theGA.png, it is a binary file.
+publisher_img\SpaceShipRed_mjHxotf.png, it is a binary file.
+publisher_img\SpaceShipRed_mlQGWR4.png, it is a binary file.
+publisher_img\SpaceShipRed_NTmyVrk.png, it is a binary file.
+publisher_img\SpaceShipRed_odiDFPt.png, it is a binary file.
+publisher_img\SpaceShipRed_ofuPDCJ.png, it is a binary file.
+publisher_img\SpaceShipRed_pO8bjA5.png, it is a binary file.
+publisher_img\SpaceShipRed_QvhWvZz.png, it is a binary file.
+publisher_img\SpaceShipRed_spkJ3u3.png, it is a binary file.
+publisher_img\SpaceShipRed_Y06PkCZ.png, it is a binary file.
+publisher_img\SpaceShipRed_YwTcBe1.png, it is a binary file.
+publisher_img\SpaceShipRed_zdVDPBY.png, it is a binary file.
+static\css\base_style.css, code is 44, comment is 1, blank is 9.
+static\css\homez_style.css, code is 45, comment is 0, blank is 5.
+static\css\styles.css, code is 16, comment is 0, blank is 2.
+static\css\typesofmobileapps1.jpg, it is a binary file.
+static\game_img\355NXc8.jpg, it is a binary file.
+static\game_img\355NXc8_7TRyr3s.jpg, it is a binary file.
+static\game_img\campoBil.png, it is a binary file.
+static\game_img\campoBil_dpe49wr.png, it is a binary file.
+static\game_img\dq4.jpg, it is a binary file.
+static\game_img\dq4_DnmjHHd.jpg, it is a binary file.
+static\game_img\dq4_K8h9PXR.jpg, it is a binary file.
+static\game_img\dq4_wIw9Plt.jpg, it is a binary file.
+static\game_img\dq5.jpg, it is a binary file.
+static\game_img\dq5_3Zq84Ja.jpg, it is a binary file.
+static\game_img\dq5_WsW7hxu.jpg, it is a binary file.
+static\game_img\dq5_ZTVIuDr.jpg, it is a binary file.
+static\game_img\erdR.jpg, it is a binary file.
+static\game_img\erdR_J2wIzvi.jpg, it is a binary file.
+static\game_img\erdR_k13elKG.jpg, it is a binary file.
+static\game_img\erdR_UTxSogv.jpg, it is a binary file.
+static\game_img\erdR_Yinpoix.jpg, it is a binary file.
+static\game_img\packshot-pokemon-scarlet.png, it is a binary file.
+static\game_img\packshot-pokemon-scarlet_JmDdNOh.png, it is a binary file.
+static\game_img\packshot-pokemon-scarlet_JopCfa9.png, it is a binary file.
+static\game_img\packshot-pokemon-scarlet_oKqMTo3.png, it is a binary file.
+static\game_img\pixil-frame-0.png, it is a binary file.
+static\game_img\pn.jpg, it is a binary file.
+static\game_img\pn_1oJjKtL.jpg, it is a binary file.
+static\game_img\pn_7TC9AiE.jpg, it is a binary file.
+static\game_img\pn_hb3FYci.jpg, it is a binary file.
+static\game_img\pokemonPerla.jpg, it is a binary file.
+static\game_img\pokemonPerla_bENhNqQ.jpg, it is a binary file.
+static\game_img\pokemonPerla_dsddrcv.jpg, it is a binary file.
+static\game_img\R.jpg, it is a binary file.
+static\game_img\R_eSvaqSC.jpg, it is a binary file.
+static\game_img\R_VnKAWvx.jpg, it is a binary file.
+static\game_img\SpaceShipRed.png, it is a binary file.
+static\game_img\SpaceShipRed_DOIqtbr.png, it is a binary file.
+static\game_img\typesofmobileapps1.jpg, it is a binary file.
+static\game_img\typesofmobileapps1_pTy0q4y.jpg, it is a binary file.
+static\images\bkg2.jpg, it is a binary file.
+static\images\homeAlt.png, it is a binary file.
+static\images\homebkg.jpg, it is a binary file.
+static\images\homeBKG2.jpg, it is a binary file.
+static\images\titlePixel.png, it is a binary file.
+static\player_img\355NXc8.jpg, it is a binary file.
+static\player_img\campoBil.png, it is a binary file.
+static\player_img\campoBil_NvQqkqv.png, it is a binary file.
+static\player_img\campoBil_NZChMoU.png, it is a binary file.
+static\player_img\campoBil_SSdxyj9.png, it is a binary file.
+static\player_img\dq4.jpg, it is a binary file.
+static\player_img\dq4_H6DCxDX.jpg, it is a binary file.
+static\player_img\dq5.jpg, it is a binary file.
+static\player_img\erdR.jpg, it is a binary file.
+static\player_img\erdR_Ep952lm.jpg, it is a binary file.
+static\player_img\pn.jpg, it is a binary file.
+static\player_img\pn_GnD5PTd.jpg, it is a binary file.
+static\player_img\SpaceShipRed.png, it is a binary file.
+static\player_img\SpaceShipRed_VAhnfer.png, it is a binary file.
+static\player_img\typesofmobileapps1.jpg, it is a binary file.
+templates\base.html, code is 19, comment is 0, blank is 10.
+templates\basebs.html, code is 16, comment is 0, blank is 2.
+templates\home.html, code is 39, comment is 0, blank is 6.
+templates\playerRegCrispy.html, code is 15, comment is 0, blank is 10.
+templates\playerRegistrate.html, code is 64, comment is 0, blank is 20.
+templates\registration\login.html, code is 20, comment is 0, blank is 11.
+templates\user_register.html, code is 72, comment is 0, blank is 18.
+webapp\__init__.py, code is 0, comment is 0, blank is 0.
+webapp\__pycache__\__init__.cpython-39.pyc, it is a binary file.
+webapp\__pycache__\forms.cpython-39.pyc, it is a binary file.
+webapp\__pycache__\settings.cpython-39.pyc, it is a binary file.
+webapp\__pycache__\urls.cpython-39.pyc, it is a binary file.
+webapp\__pycache__\views.cpython-39.pyc, it is a binary file.
+webapp\asgi.py, code is 4, comment is 0, blank is 5.
+webapp\context_processors.py, code is 12, comment is 5, blank is 2.
+webapp\forms.py, code is 23, comment is 4, blank is 6.
+webapp\settings.py, code is 80, comment is 18, blank is 34.
+webapp\urls.py, code is 16, comment is 1, blank is 6.
+webapp\views.py, code is 32, comment is 6, blank is 10.
+webapp\wsgi.py, code is 4, comment is 0, blank is 5.
+===============================================================================
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2023-10-20 16:31:58
+count workspace : c:\Users\samuele\Desktop\webAppreview\webapp
+total files : 183
+total code lines : 3455
+total comment lines : 130
+total blank lines : 1008
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |          .html|           1823|             11|            498|     53|
+   |            .py|           1424|            118|            480|     41|
+   |           .css|            208|              1|             30|    6.0|
+   -------------------------------------------------------------------------
+db.sqlite3, it is a binary file.
+game_img\campoBil.png, it is a binary file.
+game_img\SpaceShipRed.png, it is a binary file.
+game_img\SpaceShipRed_7t9osdR.png, it is a binary file.
+game_img\SpaceShipRed_RrQO6x3.png, it is a binary file.
+gestione\__init__.py, code is 0, comment is 0, blank is 0.
+gestione\__pycache__\__init__.cpython-39.pyc, it is a binary file.
+gestione\__pycache__\apps.cpython-39.pyc, it is a binary file.
+gestione\admin.py, code is 6, comment is 1, blank is 1.
+gestione\apps.py, code is 4, comment is 0, blank is 2.
+gestione\choices.py, code is 63, comment is 0, blank is 2.
+gestione\migrations\0001_initial.py, code is 48, comment is 1, blank is 6.
+gestione\migrations\0002_remove_persona_game_remove_persona_user_and_more.py, code is 28, comment is 1, blank is 5.
+gestione\migrations\0003_initial.py, code is 49, comment is 1, blank is 6.
+gestione\migrations\0004_remove_player_game_remove_player_user_and_more.py, code is 28, comment is 1, blank is 5.
+gestione\migrations\0005_initial.py, code is 49, comment is 1, blank is 6.
+gestione\migrations\0006_alter_game_category_review.py, code is 27, comment is 1, blank is 5.
+gestione\migrations\0007_alter_player_pict.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0008_alter_player_pict.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0009_alter_player_pict.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0010_alter_game_pict.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0011_alter_player_game.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0012_remove_player_game_player_game.py, code is 17, comment is 1, blank is 5.
+gestione\migrations\0013_remove_player_game_player_game.py, code is 16, comment is 1, blank is 5.
+gestione\migrations\0014_alter_player_game.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0015_remove_player_game_player_games.py, code is 16, comment is 1, blank is 5.
+gestione\migrations\0016_alter_player_games.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0017_alter_review_unique_together.py, code is 11, comment is 1, blank is 5.
+gestione\migrations\0018_rename_titolo_game_title.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0019_rename_title_game_titolo.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0020_remove_player_games_remove_player_user_and_more.py, code is 43, comment is 1, blank is 5.
+gestione\migrations\0021_initial.py, code is 71, comment is 1, blank is 6.
+gestione\migrations\0022_game_average_gameplay_rating_and_more.py, code is 37, comment is 1, blank is 5.
+gestione\migrations\0023_alter_game_console.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\__init__.py, code is 0, comment is 0, blank is 0.
+gestione\models.py, code is 71, comment is 5, blank is 23.
+gestione\static\css\style.css, code is 42, comment is 0, blank is 7.
+gestione\static\css\style2.css, code is 45, comment is 0, blank is 5.
+gestione\static\css\styles.css, code is 16, comment is 0, blank is 2.
+gestione\templates\addgamePub.html, code is 313, comment is 1, blank is 91.
+gestione\templates\analyticsGame.html, code is 101, comment is 0, blank is 24.
+gestione\templates\deleteReview.html, code is 12, comment is 0, blank is 2.
+gestione\templates\gamePage.html, code is 13, comment is 0, blank is 2.
+gestione\templates\gamePub.html, code is 16, comment is 0, blank is 2.
+gestione\templates\gameRecom.html, code is 13, comment is 0, blank is 2.
+gestione\templates\gameRegistration.html, code is 32, comment is 0, blank is 9.
+gestione\templates\home_player.html, code is 72, comment is 1, blank is 7.
+gestione\templates\home_publisher.html, code is 62, comment is 0, blank is 5.
+gestione\templates\myGames.html, code is 21, comment is 0, blank is 1.
+gestione\templates\newtzt.html, code is 285, comment is 1, blank is 93.
+gestione\templates\ok.html, code is 4, comment is 0, blank is 1.
+gestione\templates\playerProfile.html, code is 52, comment is 0, blank is 8.
+gestione\templates\playerReg.html, code is 11, comment is 0, blank is 4.
+gestione\templates\playerRegistration.html, code is 36, comment is 0, blank is 14.
+gestione\templates\publisherProfile.html, code is 11, comment is 1, blank is 2.
+gestione\templates\publisherReg.html, code is 11, comment is 0, blank is 4.
+gestione\templates\publisherRegistration.html, code is 16, comment is 0, blank is 5.
+gestione\templates\reviewGame.html, code is 41, comment is 6, blank is 15.
+gestione\templates\searchgames.html, code is 380, comment is 1, blank is 107.
+gestione\templates\showGameReview.html, code is 25, comment is 0, blank is 3.
+gestione\templates\specSearch.html, code is 25, comment is 0, blank is 17.
+gestione\templates\test.html, code is 26, comment is 0, blank is 3.
+gestione\tests.py, code is 1, comment is 1, blank is 1.
+gestione\urls.py, code is 34, comment is 5, blank is 12.
+gestione\utility.py, code is 133, comment is 3, blank is 57.
+gestione\views.py, code is 253, comment is 31, blank is 121.
+gestione\viewsPlayer.py, code is 78, comment is 8, blank is 50.
+gestione\viewsPublisher.py, code is 38, comment is 6, blank is 15.
+manage.py, code is 12, comment is 1, blank is 9.
+player_img\SpaceShipRed.png, it is a binary file.
+player_img\SpaceShipRed_phnxE2Y.png, it is a binary file.
+publisher_img\campoBil.png, it is a binary file.
+publisher_img\campoBil_1klO4Ic.png, it is a binary file.
+publisher_img\campoBil_3LsM0Iq.png, it is a binary file.
+publisher_img\campoBil_CWlqwkk.png, it is a binary file.
+publisher_img\campoBil_h90mvp7.png, it is a binary file.
+publisher_img\campoBil_hPGLbF5.png, it is a binary file.
+publisher_img\campoBil_Kud08Gq.png, it is a binary file.
+publisher_img\campoBil_LB7oJkw.png, it is a binary file.
+publisher_img\campoBil_Lt6saPC.png, it is a binary file.
+publisher_img\campoBil_pDwrqOF.png, it is a binary file.
+publisher_img\campoBil_Q7ZewTA.png, it is a binary file.
+publisher_img\campoBil_tAF1hgL.png, it is a binary file.
+publisher_img\campoBil_XnxRJFI.png, it is a binary file.
+publisher_img\packshot-pokemon-scarlet.png, it is a binary file.
+publisher_img\SpaceShipRed.png, it is a binary file.
+publisher_img\SpaceShipRed_3E7Xr2h.png, it is a binary file.
+publisher_img\SpaceShipRed_4e8496M.png, it is a binary file.
+publisher_img\SpaceShipRed_DQorRbF.png, it is a binary file.
+publisher_img\SpaceShipRed_dxeRYbd.png, it is a binary file.
+publisher_img\SpaceShipRed_fSkn2wO.png, it is a binary file.
+publisher_img\SpaceShipRed_k9theGA.png, it is a binary file.
+publisher_img\SpaceShipRed_mjHxotf.png, it is a binary file.
+publisher_img\SpaceShipRed_mlQGWR4.png, it is a binary file.
+publisher_img\SpaceShipRed_NTmyVrk.png, it is a binary file.
+publisher_img\SpaceShipRed_odiDFPt.png, it is a binary file.
+publisher_img\SpaceShipRed_ofuPDCJ.png, it is a binary file.
+publisher_img\SpaceShipRed_pO8bjA5.png, it is a binary file.
+publisher_img\SpaceShipRed_QvhWvZz.png, it is a binary file.
+publisher_img\SpaceShipRed_spkJ3u3.png, it is a binary file.
+publisher_img\SpaceShipRed_Y06PkCZ.png, it is a binary file.
+publisher_img\SpaceShipRed_YwTcBe1.png, it is a binary file.
+publisher_img\SpaceShipRed_zdVDPBY.png, it is a binary file.
+static\css\base_style.css, code is 44, comment is 1, blank is 9.
+static\css\homez_style.css, code is 45, comment is 0, blank is 5.
+static\css\styles.css, code is 16, comment is 0, blank is 2.
+static\css\typesofmobileapps1.jpg, it is a binary file.
+static\game_img\355NXc8.jpg, it is a binary file.
+static\game_img\355NXc8_7TRyr3s.jpg, it is a binary file.
+static\game_img\campoBil.png, it is a binary file.
+static\game_img\campoBil_dpe49wr.png, it is a binary file.
+static\game_img\dq4.jpg, it is a binary file.
+static\game_img\dq4_DnmjHHd.jpg, it is a binary file.
+static\game_img\dq4_K8h9PXR.jpg, it is a binary file.
+static\game_img\dq4_wIw9Plt.jpg, it is a binary file.
+static\game_img\dq5.jpg, it is a binary file.
+static\game_img\dq5_3Zq84Ja.jpg, it is a binary file.
+static\game_img\dq5_WsW7hxu.jpg, it is a binary file.
+static\game_img\dq5_ZTVIuDr.jpg, it is a binary file.
+static\game_img\erdR.jpg, it is a binary file.
+static\game_img\erdR_J2wIzvi.jpg, it is a binary file.
+static\game_img\erdR_k13elKG.jpg, it is a binary file.
+static\game_img\erdR_UTxSogv.jpg, it is a binary file.
+static\game_img\erdR_Yinpoix.jpg, it is a binary file.
+static\game_img\packshot-pokemon-scarlet.png, it is a binary file.
+static\game_img\packshot-pokemon-scarlet_JmDdNOh.png, it is a binary file.
+static\game_img\packshot-pokemon-scarlet_JopCfa9.png, it is a binary file.
+static\game_img\packshot-pokemon-scarlet_oKqMTo3.png, it is a binary file.
+static\game_img\pixil-frame-0.png, it is a binary file.
+static\game_img\pn.jpg, it is a binary file.
+static\game_img\pn_1oJjKtL.jpg, it is a binary file.
+static\game_img\pn_7TC9AiE.jpg, it is a binary file.
+static\game_img\pn_hb3FYci.jpg, it is a binary file.
+static\game_img\pokemonPerla.jpg, it is a binary file.
+static\game_img\pokemonPerla_bENhNqQ.jpg, it is a binary file.
+static\game_img\pokemonPerla_dsddrcv.jpg, it is a binary file.
+static\game_img\R.jpg, it is a binary file.
+static\game_img\R_eSvaqSC.jpg, it is a binary file.
+static\game_img\R_VnKAWvx.jpg, it is a binary file.
+static\game_img\SpaceShipRed.png, it is a binary file.
+static\game_img\SpaceShipRed_DOIqtbr.png, it is a binary file.
+static\game_img\typesofmobileapps1.jpg, it is a binary file.
+static\game_img\typesofmobileapps1_pTy0q4y.jpg, it is a binary file.
+static\images\bkg2.jpg, it is a binary file.
+static\images\homeAlt.png, it is a binary file.
+static\images\homebkg.jpg, it is a binary file.
+static\images\homeBKG2.jpg, it is a binary file.
+static\images\titlePixel.png, it is a binary file.
+static\player_img\355NXc8.jpg, it is a binary file.
+static\player_img\campoBil.png, it is a binary file.
+static\player_img\campoBil_NvQqkqv.png, it is a binary file.
+static\player_img\campoBil_NZChMoU.png, it is a binary file.
+static\player_img\campoBil_SSdxyj9.png, it is a binary file.
+static\player_img\dq4.jpg, it is a binary file.
+static\player_img\dq4_H6DCxDX.jpg, it is a binary file.
+static\player_img\dq5.jpg, it is a binary file.
+static\player_img\erdR.jpg, it is a binary file.
+static\player_img\erdR_Ep952lm.jpg, it is a binary file.
+static\player_img\pn.jpg, it is a binary file.
+static\player_img\pn_GnD5PTd.jpg, it is a binary file.
+static\player_img\SpaceShipRed.png, it is a binary file.
+static\player_img\SpaceShipRed_VAhnfer.png, it is a binary file.
+static\player_img\typesofmobileapps1.jpg, it is a binary file.
+templates\base.html, code is 19, comment is 0, blank is 10.
+templates\basebs.html, code is 16, comment is 0, blank is 2.
+templates\home.html, code is 39, comment is 0, blank is 6.
+templates\playerRegCrispy.html, code is 15, comment is 0, blank is 10.
+templates\playerRegistrate.html, code is 64, comment is 0, blank is 20.
+templates\registration\login.html, code is 20, comment is 0, blank is 11.
+templates\user_register.html, code is 72, comment is 0, blank is 18.
+webapp\__init__.py, code is 0, comment is 0, blank is 0.
+webapp\__pycache__\__init__.cpython-39.pyc, it is a binary file.
+webapp\__pycache__\forms.cpython-39.pyc, it is a binary file.
+webapp\__pycache__\settings.cpython-39.pyc, it is a binary file.
+webapp\__pycache__\urls.cpython-39.pyc, it is a binary file.
+webapp\__pycache__\views.cpython-39.pyc, it is a binary file.
+webapp\asgi.py, code is 4, comment is 0, blank is 5.
+webapp\context_processors.py, code is 12, comment is 5, blank is 2.
+webapp\forms.py, code is 23, comment is 4, blank is 6.
+webapp\settings.py, code is 80, comment is 18, blank is 34.
+webapp\urls.py, code is 16, comment is 1, blank is 6.
+webapp\views.py, code is 32, comment is 6, blank is 10.
+webapp\wsgi.py, code is 4, comment is 0, blank is 5.
+===============================================================================
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2023-10-20 16:33:43
+count workspace : c:\Users\samuele\Desktop\webAppreview\webapp
+total files : 183
+total code lines : 3455
+total comment lines : 130
+total blank lines : 1008
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |          .html|           1823|             11|            498|     53|
+   |            .py|           1424|            118|            480|     41|
+   |           .css|            208|              1|             30|    6.0|
+   -------------------------------------------------------------------------
+db.sqlite3, it is a binary file.
+game_img\campoBil.png, it is a binary file.
+game_img\SpaceShipRed.png, it is a binary file.
+game_img\SpaceShipRed_7t9osdR.png, it is a binary file.
+game_img\SpaceShipRed_RrQO6x3.png, it is a binary file.
+gestione\__init__.py, code is 0, comment is 0, blank is 0.
+gestione\__pycache__\__init__.cpython-39.pyc, it is a binary file.
+gestione\__pycache__\apps.cpython-39.pyc, it is a binary file.
+gestione\admin.py, code is 6, comment is 1, blank is 1.
+gestione\apps.py, code is 4, comment is 0, blank is 2.
+gestione\choices.py, code is 63, comment is 0, blank is 2.
+gestione\migrations\0001_initial.py, code is 48, comment is 1, blank is 6.
+gestione\migrations\0002_remove_persona_game_remove_persona_user_and_more.py, code is 28, comment is 1, blank is 5.
+gestione\migrations\0003_initial.py, code is 49, comment is 1, blank is 6.
+gestione\migrations\0004_remove_player_game_remove_player_user_and_more.py, code is 28, comment is 1, blank is 5.
+gestione\migrations\0005_initial.py, code is 49, comment is 1, blank is 6.
+gestione\migrations\0006_alter_game_category_review.py, code is 27, comment is 1, blank is 5.
+gestione\migrations\0007_alter_player_pict.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0008_alter_player_pict.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0009_alter_player_pict.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0010_alter_game_pict.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0011_alter_player_game.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0012_remove_player_game_player_game.py, code is 17, comment is 1, blank is 5.
+gestione\migrations\0013_remove_player_game_player_game.py, code is 16, comment is 1, blank is 5.
+gestione\migrations\0014_alter_player_game.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0015_remove_player_game_player_games.py, code is 16, comment is 1, blank is 5.
+gestione\migrations\0016_alter_player_games.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0017_alter_review_unique_together.py, code is 11, comment is 1, blank is 5.
+gestione\migrations\0018_rename_titolo_game_title.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0019_rename_title_game_titolo.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0020_remove_player_games_remove_player_user_and_more.py, code is 43, comment is 1, blank is 5.
+gestione\migrations\0021_initial.py, code is 71, comment is 1, blank is 6.
+gestione\migrations\0022_game_average_gameplay_rating_and_more.py, code is 37, comment is 1, blank is 5.
+gestione\migrations\0023_alter_game_console.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\__init__.py, code is 0, comment is 0, blank is 0.
+gestione\models.py, code is 71, comment is 5, blank is 23.
+gestione\static\css\style.css, code is 42, comment is 0, blank is 7.
+gestione\static\css\style2.css, code is 45, comment is 0, blank is 5.
+gestione\static\css\styles.css, code is 16, comment is 0, blank is 2.
+gestione\templates\addgamePub.html, code is 313, comment is 1, blank is 91.
+gestione\templates\analyticsGame.html, code is 101, comment is 0, blank is 24.
+gestione\templates\deleteReview.html, code is 12, comment is 0, blank is 2.
+gestione\templates\gamePage.html, code is 13, comment is 0, blank is 2.
+gestione\templates\gamePub.html, code is 16, comment is 0, blank is 2.
+gestione\templates\gameRecom.html, code is 13, comment is 0, blank is 2.
+gestione\templates\gameRegistration.html, code is 32, comment is 0, blank is 9.
+gestione\templates\home_player.html, code is 72, comment is 1, blank is 7.
+gestione\templates\home_publisher.html, code is 62, comment is 0, blank is 5.
+gestione\templates\myGames.html, code is 21, comment is 0, blank is 1.
+gestione\templates\newtzt.html, code is 285, comment is 1, blank is 93.
+gestione\templates\ok.html, code is 4, comment is 0, blank is 1.
+gestione\templates\playerProfile.html, code is 52, comment is 0, blank is 8.
+gestione\templates\playerReg.html, code is 11, comment is 0, blank is 4.
+gestione\templates\playerRegistration.html, code is 36, comment is 0, blank is 14.
+gestione\templates\publisherProfile.html, code is 11, comment is 1, blank is 2.
+gestione\templates\publisherReg.html, code is 11, comment is 0, blank is 4.
+gestione\templates\publisherRegistration.html, code is 16, comment is 0, blank is 5.
+gestione\templates\reviewGame.html, code is 41, comment is 6, blank is 15.
+gestione\templates\searchgames.html, code is 380, comment is 1, blank is 107.
+gestione\templates\showGameReview.html, code is 25, comment is 0, blank is 3.
+gestione\templates\specSearch.html, code is 25, comment is 0, blank is 17.
+gestione\templates\test.html, code is 26, comment is 0, blank is 3.
+gestione\tests.py, code is 1, comment is 1, blank is 1.
+gestione\urls.py, code is 34, comment is 5, blank is 12.
+gestione\utility.py, code is 133, comment is 3, blank is 57.
+gestione\views.py, code is 253, comment is 31, blank is 121.
+gestione\viewsPlayer.py, code is 78, comment is 8, blank is 50.
+gestione\viewsPublisher.py, code is 38, comment is 6, blank is 15.
+manage.py, code is 12, comment is 1, blank is 9.
+player_img\SpaceShipRed.png, it is a binary file.
+player_img\SpaceShipRed_phnxE2Y.png, it is a binary file.
+publisher_img\campoBil.png, it is a binary file.
+publisher_img\campoBil_1klO4Ic.png, it is a binary file.
+publisher_img\campoBil_3LsM0Iq.png, it is a binary file.
+publisher_img\campoBil_CWlqwkk.png, it is a binary file.
+publisher_img\campoBil_h90mvp7.png, it is a binary file.
+publisher_img\campoBil_hPGLbF5.png, it is a binary file.
+publisher_img\campoBil_Kud08Gq.png, it is a binary file.
+publisher_img\campoBil_LB7oJkw.png, it is a binary file.
+publisher_img\campoBil_Lt6saPC.png, it is a binary file.
+publisher_img\campoBil_pDwrqOF.png, it is a binary file.
+publisher_img\campoBil_Q7ZewTA.png, it is a binary file.
+publisher_img\campoBil_tAF1hgL.png, it is a binary file.
+publisher_img\campoBil_XnxRJFI.png, it is a binary file.
+publisher_img\packshot-pokemon-scarlet.png, it is a binary file.
+publisher_img\SpaceShipRed.png, it is a binary file.
+publisher_img\SpaceShipRed_3E7Xr2h.png, it is a binary file.
+publisher_img\SpaceShipRed_4e8496M.png, it is a binary file.
+publisher_img\SpaceShipRed_DQorRbF.png, it is a binary file.
+publisher_img\SpaceShipRed_dxeRYbd.png, it is a binary file.
+publisher_img\SpaceShipRed_fSkn2wO.png, it is a binary file.
+publisher_img\SpaceShipRed_k9theGA.png, it is a binary file.
+publisher_img\SpaceShipRed_mjHxotf.png, it is a binary file.
+publisher_img\SpaceShipRed_mlQGWR4.png, it is a binary file.
+publisher_img\SpaceShipRed_NTmyVrk.png, it is a binary file.
+publisher_img\SpaceShipRed_odiDFPt.png, it is a binary file.
+publisher_img\SpaceShipRed_ofuPDCJ.png, it is a binary file.
+publisher_img\SpaceShipRed_pO8bjA5.png, it is a binary file.
+publisher_img\SpaceShipRed_QvhWvZz.png, it is a binary file.
+publisher_img\SpaceShipRed_spkJ3u3.png, it is a binary file.
+publisher_img\SpaceShipRed_Y06PkCZ.png, it is a binary file.
+publisher_img\SpaceShipRed_YwTcBe1.png, it is a binary file.
+publisher_img\SpaceShipRed_zdVDPBY.png, it is a binary file.
+static\css\base_style.css, code is 44, comment is 1, blank is 9.
+static\css\homez_style.css, code is 45, comment is 0, blank is 5.
+static\css\styles.css, code is 16, comment is 0, blank is 2.
+static\css\typesofmobileapps1.jpg, it is a binary file.
+static\game_img\355NXc8.jpg, it is a binary file.
+static\game_img\355NXc8_7TRyr3s.jpg, it is a binary file.
+static\game_img\campoBil.png, it is a binary file.
+static\game_img\campoBil_dpe49wr.png, it is a binary file.
+static\game_img\dq4.jpg, it is a binary file.
+static\game_img\dq4_DnmjHHd.jpg, it is a binary file.
+static\game_img\dq4_K8h9PXR.jpg, it is a binary file.
+static\game_img\dq4_wIw9Plt.jpg, it is a binary file.
+static\game_img\dq5.jpg, it is a binary file.
+static\game_img\dq5_3Zq84Ja.jpg, it is a binary file.
+static\game_img\dq5_WsW7hxu.jpg, it is a binary file.
+static\game_img\dq5_ZTVIuDr.jpg, it is a binary file.
+static\game_img\erdR.jpg, it is a binary file.
+static\game_img\erdR_J2wIzvi.jpg, it is a binary file.
+static\game_img\erdR_k13elKG.jpg, it is a binary file.
+static\game_img\erdR_UTxSogv.jpg, it is a binary file.
+static\game_img\erdR_Yinpoix.jpg, it is a binary file.
+static\game_img\packshot-pokemon-scarlet.png, it is a binary file.
+static\game_img\packshot-pokemon-scarlet_JmDdNOh.png, it is a binary file.
+static\game_img\packshot-pokemon-scarlet_JopCfa9.png, it is a binary file.
+static\game_img\packshot-pokemon-scarlet_oKqMTo3.png, it is a binary file.
+static\game_img\pixil-frame-0.png, it is a binary file.
+static\game_img\pn.jpg, it is a binary file.
+static\game_img\pn_1oJjKtL.jpg, it is a binary file.
+static\game_img\pn_7TC9AiE.jpg, it is a binary file.
+static\game_img\pn_hb3FYci.jpg, it is a binary file.
+static\game_img\pokemonPerla.jpg, it is a binary file.
+static\game_img\pokemonPerla_bENhNqQ.jpg, it is a binary file.
+static\game_img\pokemonPerla_dsddrcv.jpg, it is a binary file.
+static\game_img\R.jpg, it is a binary file.
+static\game_img\R_eSvaqSC.jpg, it is a binary file.
+static\game_img\R_VnKAWvx.jpg, it is a binary file.
+static\game_img\SpaceShipRed.png, it is a binary file.
+static\game_img\SpaceShipRed_DOIqtbr.png, it is a binary file.
+static\game_img\typesofmobileapps1.jpg, it is a binary file.
+static\game_img\typesofmobileapps1_pTy0q4y.jpg, it is a binary file.
+static\images\bkg2.jpg, it is a binary file.
+static\images\homeAlt.png, it is a binary file.
+static\images\homebkg.jpg, it is a binary file.
+static\images\homeBKG2.jpg, it is a binary file.
+static\images\titlePixel.png, it is a binary file.
+static\player_img\355NXc8.jpg, it is a binary file.
+static\player_img\campoBil.png, it is a binary file.
+static\player_img\campoBil_NvQqkqv.png, it is a binary file.
+static\player_img\campoBil_NZChMoU.png, it is a binary file.
+static\player_img\campoBil_SSdxyj9.png, it is a binary file.
+static\player_img\dq4.jpg, it is a binary file.
+static\player_img\dq4_H6DCxDX.jpg, it is a binary file.
+static\player_img\dq5.jpg, it is a binary file.
+static\player_img\erdR.jpg, it is a binary file.
+static\player_img\erdR_Ep952lm.jpg, it is a binary file.
+static\player_img\pn.jpg, it is a binary file.
+static\player_img\pn_GnD5PTd.jpg, it is a binary file.
+static\player_img\SpaceShipRed.png, it is a binary file.
+static\player_img\SpaceShipRed_VAhnfer.png, it is a binary file.
+static\player_img\typesofmobileapps1.jpg, it is a binary file.
+templates\base.html, code is 19, comment is 0, blank is 10.
+templates\basebs.html, code is 16, comment is 0, blank is 2.
+templates\home.html, code is 39, comment is 0, blank is 6.
+templates\playerRegCrispy.html, code is 15, comment is 0, blank is 10.
+templates\playerRegistrate.html, code is 64, comment is 0, blank is 20.
+templates\registration\login.html, code is 20, comment is 0, blank is 11.
+templates\user_register.html, code is 72, comment is 0, blank is 18.
+webapp\__init__.py, code is 0, comment is 0, blank is 0.
+webapp\__pycache__\__init__.cpython-39.pyc, it is a binary file.
+webapp\__pycache__\forms.cpython-39.pyc, it is a binary file.
+webapp\__pycache__\settings.cpython-39.pyc, it is a binary file.
+webapp\__pycache__\urls.cpython-39.pyc, it is a binary file.
+webapp\__pycache__\views.cpython-39.pyc, it is a binary file.
+webapp\asgi.py, code is 4, comment is 0, blank is 5.
+webapp\context_processors.py, code is 12, comment is 5, blank is 2.
+webapp\forms.py, code is 23, comment is 4, blank is 6.
+webapp\settings.py, code is 80, comment is 18, blank is 34.
+webapp\urls.py, code is 16, comment is 1, blank is 6.
+webapp\views.py, code is 32, comment is 6, blank is 10.
+webapp\wsgi.py, code is 4, comment is 0, blank is 5.
+===============================================================================
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2023-10-21 16:01:24
+count workspace : c:\Users\samuele\Desktop\webAppreview\webapp
+total files : 187
+total code lines : 3897
+total comment lines : 148
+total blank lines : 1090
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |          .html|           1903|             11|            516|     49|
+   |            .py|           1786|            136|            544|     46|
+   |           .css|            208|              1|             30|    5.3|
+   -------------------------------------------------------------------------
+db.sqlite3, it is a binary file.
+game_img\campoBil.png, it is a binary file.
+game_img\SpaceShipRed.png, it is a binary file.
+game_img\SpaceShipRed_7t9osdR.png, it is a binary file.
+game_img\SpaceShipRed_RrQO6x3.png, it is a binary file.
+gestione\__init__.py, code is 0, comment is 0, blank is 0.
+gestione\__pycache__\__init__.cpython-39.pyc, it is a binary file.
+gestione\__pycache__\apps.cpython-39.pyc, it is a binary file.
+gestione\admin.py, code is 6, comment is 1, blank is 1.
+gestione\apps.py, code is 4, comment is 0, blank is 2.
+gestione\choices.py, code is 63, comment is 0, blank is 2.
+gestione\migrations\0001_initial.py, code is 48, comment is 1, blank is 6.
+gestione\migrations\0002_remove_persona_game_remove_persona_user_and_more.py, code is 28, comment is 1, blank is 5.
+gestione\migrations\0003_initial.py, code is 49, comment is 1, blank is 6.
+gestione\migrations\0004_remove_player_game_remove_player_user_and_more.py, code is 28, comment is 1, blank is 5.
+gestione\migrations\0005_initial.py, code is 49, comment is 1, blank is 6.
+gestione\migrations\0006_alter_game_category_review.py, code is 27, comment is 1, blank is 5.
+gestione\migrations\0007_alter_player_pict.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0008_alter_player_pict.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0009_alter_player_pict.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0010_alter_game_pict.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0011_alter_player_game.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0012_remove_player_game_player_game.py, code is 17, comment is 1, blank is 5.
+gestione\migrations\0013_remove_player_game_player_game.py, code is 16, comment is 1, blank is 5.
+gestione\migrations\0014_alter_player_game.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0015_remove_player_game_player_games.py, code is 16, comment is 1, blank is 5.
+gestione\migrations\0016_alter_player_games.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0017_alter_review_unique_together.py, code is 11, comment is 1, blank is 5.
+gestione\migrations\0018_rename_titolo_game_title.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0019_rename_title_game_titolo.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0020_remove_player_games_remove_player_user_and_more.py, code is 43, comment is 1, blank is 5.
+gestione\migrations\0021_initial.py, code is 71, comment is 1, blank is 6.
+gestione\migrations\0022_game_average_gameplay_rating_and_more.py, code is 37, comment is 1, blank is 5.
+gestione\migrations\0023_alter_game_console.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0024_alter_game_console_alter_player_console.py, code is 17, comment is 1, blank is 5.
+gestione\migrations\__init__.py, code is 0, comment is 0, blank is 0.
+gestione\models.py, code is 66, comment is 5, blank is 22.
+gestione\static\css\style.css, code is 42, comment is 0, blank is 7.
+gestione\static\css\style2.css, code is 45, comment is 0, blank is 5.
+gestione\static\css\styles.css, code is 16, comment is 0, blank is 2.
+gestione\templates\addgamePub.html, code is 313, comment is 1, blank is 91.
+gestione\templates\analyticsAll.html, code is 80, comment is 0, blank is 18.
+gestione\templates\analyticsGame.html, code is 101, comment is 0, blank is 24.
+gestione\templates\deleteReview.html, code is 12, comment is 0, blank is 2.
+gestione\templates\gamePage.html, code is 13, comment is 0, blank is 2.
+gestione\templates\gamePub.html, code is 16, comment is 0, blank is 2.
+gestione\templates\gameRecom.html, code is 13, comment is 0, blank is 2.
+gestione\templates\gameRegistration.html, code is 32, comment is 0, blank is 9.
+gestione\templates\home_player.html, code is 72, comment is 1, blank is 7.
+gestione\templates\home_publisher.html, code is 62, comment is 0, blank is 5.
+gestione\templates\myGames.html, code is 21, comment is 0, blank is 1.
+gestione\templates\newtzt.html, code is 285, comment is 1, blank is 93.
+gestione\templates\ok.html, code is 4, comment is 0, blank is 1.
+gestione\templates\playerProfile.html, code is 52, comment is 0, blank is 8.
+gestione\templates\playerReg.html, code is 11, comment is 0, blank is 4.
+gestione\templates\playerRegistration.html, code is 36, comment is 0, blank is 14.
+gestione\templates\publisherProfile.html, code is 11, comment is 1, blank is 2.
+gestione\templates\publisherReg.html, code is 11, comment is 0, blank is 4.
+gestione\templates\publisherRegistration.html, code is 16, comment is 0, blank is 5.
+gestione\templates\reviewGame.html, code is 41, comment is 6, blank is 15.
+gestione\templates\searchgames.html, code is 380, comment is 1, blank is 107.
+gestione\templates\showGameReview.html, code is 25, comment is 0, blank is 3.
+gestione\templates\specSearch.html, code is 25, comment is 0, blank is 17.
+gestione\templates\test.html, code is 26, comment is 0, blank is 3.
+gestione\tests.py, code is 312, comment is 17, blank is 47.
+gestione\urls.py, code is 35, comment is 5, blank is 12.
+gestione\utility.py, code is 151, comment is 4, blank is 61.
+gestione\views.py, code is 260, comment is 31, blank is 124.
+gestione\viewsPlayer.py, code is 78, comment is 8, blank is 50.
+gestione\viewsPublisher.py, code is 50, comment is 6, blank is 21.
+manage.py, code is 12, comment is 1, blank is 9.
+player_img\SpaceShipRed.png, it is a binary file.
+player_img\SpaceShipRed_phnxE2Y.png, it is a binary file.
+publisher_img\campoBil.png, it is a binary file.
+publisher_img\campoBil_1klO4Ic.png, it is a binary file.
+publisher_img\campoBil_3LsM0Iq.png, it is a binary file.
+publisher_img\campoBil_CWlqwkk.png, it is a binary file.
+publisher_img\campoBil_h90mvp7.png, it is a binary file.
+publisher_img\campoBil_hPGLbF5.png, it is a binary file.
+publisher_img\campoBil_Kud08Gq.png, it is a binary file.
+publisher_img\campoBil_LB7oJkw.png, it is a binary file.
+publisher_img\campoBil_Lt6saPC.png, it is a binary file.
+publisher_img\campoBil_pDwrqOF.png, it is a binary file.
+publisher_img\campoBil_Q7ZewTA.png, it is a binary file.
+publisher_img\campoBil_tAF1hgL.png, it is a binary file.
+publisher_img\campoBil_XnxRJFI.png, it is a binary file.
+publisher_img\packshot-pokemon-scarlet.png, it is a binary file.
+publisher_img\SpaceShipRed.png, it is a binary file.
+publisher_img\SpaceShipRed_3E7Xr2h.png, it is a binary file.
+publisher_img\SpaceShipRed_4e8496M.png, it is a binary file.
+publisher_img\SpaceShipRed_DQorRbF.png, it is a binary file.
+publisher_img\SpaceShipRed_dxeRYbd.png, it is a binary file.
+publisher_img\SpaceShipRed_fSkn2wO.png, it is a binary file.
+publisher_img\SpaceShipRed_k9theGA.png, it is a binary file.
+publisher_img\SpaceShipRed_mjHxotf.png, it is a binary file.
+publisher_img\SpaceShipRed_mlQGWR4.png, it is a binary file.
+publisher_img\SpaceShipRed_NTmyVrk.png, it is a binary file.
+publisher_img\SpaceShipRed_odiDFPt.png, it is a binary file.
+publisher_img\SpaceShipRed_ofuPDCJ.png, it is a binary file.
+publisher_img\SpaceShipRed_pO8bjA5.png, it is a binary file.
+publisher_img\SpaceShipRed_QvhWvZz.png, it is a binary file.
+publisher_img\SpaceShipRed_spkJ3u3.png, it is a binary file.
+publisher_img\SpaceShipRed_Y06PkCZ.png, it is a binary file.
+publisher_img\SpaceShipRed_YwTcBe1.png, it is a binary file.
+publisher_img\SpaceShipRed_zdVDPBY.png, it is a binary file.
+static\css\base_style.css, code is 44, comment is 1, blank is 9.
+static\css\homez_style.css, code is 45, comment is 0, blank is 5.
+static\css\styles.css, code is 16, comment is 0, blank is 2.
+static\css\typesofmobileapps1.jpg, it is a binary file.
+static\game_img\355NXc8.jpg, it is a binary file.
+static\game_img\355NXc8_7TRyr3s.jpg, it is a binary file.
+static\game_img\42925_2.png, it is a binary file.
+static\game_img\campoBil.png, it is a binary file.
+static\game_img\campoBil_dpe49wr.png, it is a binary file.
+static\game_img\dq4.jpg, it is a binary file.
+static\game_img\dq4_DnmjHHd.jpg, it is a binary file.
+static\game_img\dq4_K8h9PXR.jpg, it is a binary file.
+static\game_img\dq4_wIw9Plt.jpg, it is a binary file.
+static\game_img\dq5.jpg, it is a binary file.
+static\game_img\dq5_3Zq84Ja.jpg, it is a binary file.
+static\game_img\dq5_WsW7hxu.jpg, it is a binary file.
+static\game_img\dq5_ZTVIuDr.jpg, it is a binary file.
+static\game_img\erdR.jpg, it is a binary file.
+static\game_img\erdR_J2wIzvi.jpg, it is a binary file.
+static\game_img\erdR_k13elKG.jpg, it is a binary file.
+static\game_img\erdR_UTxSogv.jpg, it is a binary file.
+static\game_img\erdR_Yinpoix.jpg, it is a binary file.
+static\game_img\OIP.jpg, it is a binary file.
+static\game_img\packshot-pokemon-scarlet.png, it is a binary file.
+static\game_img\packshot-pokemon-scarlet_JmDdNOh.png, it is a binary file.
+static\game_img\packshot-pokemon-scarlet_JopCfa9.png, it is a binary file.
+static\game_img\packshot-pokemon-scarlet_oKqMTo3.png, it is a binary file.
+static\game_img\pixil-frame-0.png, it is a binary file.
+static\game_img\pn.jpg, it is a binary file.
+static\game_img\pn_1oJjKtL.jpg, it is a binary file.
+static\game_img\pn_7TC9AiE.jpg, it is a binary file.
+static\game_img\pn_hb3FYci.jpg, it is a binary file.
+static\game_img\pokemonPerla.jpg, it is a binary file.
+static\game_img\pokemonPerla_bENhNqQ.jpg, it is a binary file.
+static\game_img\pokemonPerla_dsddrcv.jpg, it is a binary file.
+static\game_img\R.jpg, it is a binary file.
+static\game_img\R_eSvaqSC.jpg, it is a binary file.
+static\game_img\R_VnKAWvx.jpg, it is a binary file.
+static\game_img\SpaceShipRed.png, it is a binary file.
+static\game_img\SpaceShipRed_DOIqtbr.png, it is a binary file.
+static\game_img\typesofmobileapps1.jpg, it is a binary file.
+static\game_img\typesofmobileapps1_pTy0q4y.jpg, it is a binary file.
+static\images\bkg2.jpg, it is a binary file.
+static\images\homeAlt.png, it is a binary file.
+static\images\homebkg.jpg, it is a binary file.
+static\images\homeBKG2.jpg, it is a binary file.
+static\images\titlePixel.png, it is a binary file.
+static\player_img\355NXc8.jpg, it is a binary file.
+static\player_img\campoBil.png, it is a binary file.
+static\player_img\campoBil_NvQqkqv.png, it is a binary file.
+static\player_img\campoBil_NZChMoU.png, it is a binary file.
+static\player_img\campoBil_SSdxyj9.png, it is a binary file.
+static\player_img\dq4.jpg, it is a binary file.
+static\player_img\dq4_H6DCxDX.jpg, it is a binary file.
+static\player_img\dq5.jpg, it is a binary file.
+static\player_img\erdR.jpg, it is a binary file.
+static\player_img\erdR_Ep952lm.jpg, it is a binary file.
+static\player_img\pn.jpg, it is a binary file.
+static\player_img\pn_GnD5PTd.jpg, it is a binary file.
+static\player_img\SpaceShipRed.png, it is a binary file.
+static\player_img\SpaceShipRed_VAhnfer.png, it is a binary file.
+static\player_img\typesofmobileapps1.jpg, it is a binary file.
+templates\base.html, code is 19, comment is 0, blank is 10.
+templates\basebs.html, code is 16, comment is 0, blank is 2.
+templates\home.html, code is 39, comment is 0, blank is 6.
+templates\playerRegCrispy.html, code is 15, comment is 0, blank is 10.
+templates\playerRegistrate.html, code is 64, comment is 0, blank is 20.
+templates\registration\login.html, code is 20, comment is 0, blank is 11.
+templates\user_register.html, code is 72, comment is 0, blank is 18.
+webapp\__init__.py, code is 0, comment is 0, blank is 0.
+webapp\__pycache__\__init__.cpython-39.pyc, it is a binary file.
+webapp\__pycache__\forms.cpython-39.pyc, it is a binary file.
+webapp\__pycache__\settings.cpython-39.pyc, it is a binary file.
+webapp\__pycache__\urls.cpython-39.pyc, it is a binary file.
+webapp\__pycache__\views.cpython-39.pyc, it is a binary file.
+webapp\asgi.py, code is 4, comment is 0, blank is 5.
+webapp\context_processors.py, code is 12, comment is 5, blank is 2.
+webapp\forms.py, code is 24, comment is 4, blank is 7.
+webapp\settings.py, code is 80, comment is 18, blank is 34.
+webapp\urls.py, code is 16, comment is 1, blank is 6.
+webapp\views.py, code is 32, comment is 6, blank is 10.
+webapp\wsgi.py, code is 4, comment is 0, blank is 5.
+===============================================================================
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2023-10-22 16:38:49
+count workspace : c:\Users\samuele\Desktop\webAppreview\webapp
+total files : 197
+total code lines : 4673
+total comment lines : 158
+total blank lines : 1308
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |            .py|           1874|            146|            571|     40|
+   |          .html|           2591|             11|            707|     55|
+   |           .css|            208|              1|             30|    4.5|
+   -------------------------------------------------------------------------
+db.sqlite3, it is a binary file.
+game_img\campoBil.png, it is a binary file.
+game_img\SpaceShipRed.png, it is a binary file.
+game_img\SpaceShipRed_7t9osdR.png, it is a binary file.
+game_img\SpaceShipRed_RrQO6x3.png, it is a binary file.
+gestione\__init__.py, code is 0, comment is 0, blank is 0.
+gestione\__pycache__\__init__.cpython-39.pyc, it is a binary file.
+gestione\__pycache__\apps.cpython-39.pyc, it is a binary file.
+gestione\admin.py, code is 6, comment is 1, blank is 1.
+gestione\apps.py, code is 4, comment is 0, blank is 2.
+gestione\choices.py, code is 63, comment is 0, blank is 2.
+gestione\forms.py, code is 0, comment is 0, blank is 0.
+gestione\migrations\0001_initial.py, code is 48, comment is 1, blank is 6.
+gestione\migrations\0002_remove_persona_game_remove_persona_user_and_more.py, code is 28, comment is 1, blank is 5.
+gestione\migrations\0003_initial.py, code is 49, comment is 1, blank is 6.
+gestione\migrations\0004_remove_player_game_remove_player_user_and_more.py, code is 28, comment is 1, blank is 5.
+gestione\migrations\0005_initial.py, code is 49, comment is 1, blank is 6.
+gestione\migrations\0006_alter_game_category_review.py, code is 27, comment is 1, blank is 5.
+gestione\migrations\0007_alter_player_pict.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0008_alter_player_pict.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0009_alter_player_pict.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0010_alter_game_pict.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0011_alter_player_game.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0012_remove_player_game_player_game.py, code is 17, comment is 1, blank is 5.
+gestione\migrations\0013_remove_player_game_player_game.py, code is 16, comment is 1, blank is 5.
+gestione\migrations\0014_alter_player_game.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0015_remove_player_game_player_games.py, code is 16, comment is 1, blank is 5.
+gestione\migrations\0016_alter_player_games.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0017_alter_review_unique_together.py, code is 11, comment is 1, blank is 5.
+gestione\migrations\0018_rename_titolo_game_title.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0019_rename_title_game_titolo.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0020_remove_player_games_remove_player_user_and_more.py, code is 43, comment is 1, blank is 5.
+gestione\migrations\0021_initial.py, code is 71, comment is 1, blank is 6.
+gestione\migrations\0022_game_average_gameplay_rating_and_more.py, code is 37, comment is 1, blank is 5.
+gestione\migrations\0023_alter_game_console.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\0024_alter_game_console_alter_player_console.py, code is 17, comment is 1, blank is 5.
+gestione\migrations\0025_alter_publisher_pict.py, code is 12, comment is 1, blank is 5.
+gestione\migrations\__init__.py, code is 0, comment is 0, blank is 0.
+gestione\models.py, code is 66, comment is 5, blank is 22.
+gestione\static\css\style.css, code is 42, comment is 0, blank is 7.
+gestione\static\css\style2.css, code is 45, comment is 0, blank is 5.
+gestione\static\css\styles.css, code is 16, comment is 0, blank is 2.
+gestione\templates\addgamePub.html, code is 323, comment is 1, blank is 97.
+gestione\templates\analyticsAll.html, code is 80, comment is 0, blank is 18.
+gestione\templates\analyticsGame.html, code is 101, comment is 0, blank is 24.
+gestione\templates\deleteReview.html, code is 12, comment is 0, blank is 2.
+gestione\templates\gamePage.html, code is 13, comment is 0, blank is 2.
+gestione\templates\gamePub.html, code is 16, comment is 0, blank is 2.
+gestione\templates\gameRecom.html, code is 13, comment is 0, blank is 2.
+gestione\templates\gameRegistration.html, code is 32, comment is 0, blank is 9.
+gestione\templates\home_player.html, code is 72, comment is 1, blank is 7.
+gestione\templates\home_publisher.html, code is 62, comment is 0, blank is 5.
+gestione\templates\myGames.html, code is 21, comment is 0, blank is 1.
+gestione\templates\newtzt.html, code is 285, comment is 1, blank is 93.
+gestione\templates\ok.html, code is 4, comment is 0, blank is 1.
+gestione\templates\playerProfile.html, code is 181, comment is 0, blank is 40.
+gestione\templates\playerReg.html, code is 11, comment is 0, blank is 4.
+gestione\templates\playerRegistration.html, code is 36, comment is 0, blank is 14.
+gestione\templates\playersPage.html, code is 250, comment is 0, blank is 72.
+gestione\templates\publisherProfile.html, code is 11, comment is 1, blank is 2.
+gestione\templates\publisherReg.html, code is 11, comment is 0, blank is 4.
+gestione\templates\publisherRegistration.html, code is 16, comment is 0, blank is 5.
+gestione\templates\publishersPage.html, code is 236, comment is 0, blank is 67.
+gestione\templates\reviewGame.html, code is 41, comment is 6, blank is 15.
+gestione\templates\searchgames.html, code is 380, comment is 1, blank is 107.
+gestione\templates\showGameReview.html, code is 25, comment is 0, blank is 3.
+gestione\templates\specSearch.html, code is 25, comment is 0, blank is 17.
+gestione\templates\test.html, code is 26, comment is 0, blank is 3.
+gestione\tests.py, code is 366, comment is 22, blank is 58.
+gestione\urls.py, code is 37, comment is 5, blank is 12.
+gestione\utility.py, code is 151, comment is 4, blank is 61.
+gestione\views.py, code is 280, comment is 34, blank is 132.
+gestione\viewsPlayer.py, code is 78, comment is 8, blank is 50.
+gestione\viewsPublisher.py, code is 50, comment is 6, blank is 21.
+manage.py, code is 12, comment is 1, blank is 9.
+player_img\SpaceShipRed.png, it is a binary file.
+player_img\SpaceShipRed_phnxE2Y.png, it is a binary file.
+static\css\base_style.css, code is 44, comment is 1, blank is 9.
+static\css\homez_style.css, code is 45, comment is 0, blank is 5.
+static\css\styles.css, code is 16, comment is 0, blank is 2.
+static\css\typesofmobileapps1.jpg, it is a binary file.
+static\game_img\355NXc8.jpg, it is a binary file.
+static\game_img\355NXc8_7TRyr3s.jpg, it is a binary file.
+static\game_img\42925_2.png, it is a binary file.
+static\game_img\campoBil.png, it is a binary file.
+static\game_img\campoBil_dpe49wr.png, it is a binary file.
+static\game_img\dq4.jpg, it is a binary file.
+static\game_img\dq4_DnmjHHd.jpg, it is a binary file.
+static\game_img\dq4_K8h9PXR.jpg, it is a binary file.
+static\game_img\dq4_wIw9Plt.jpg, it is a binary file.
+static\game_img\dq5.jpg, it is a binary file.
+static\game_img\dq5_3Zq84Ja.jpg, it is a binary file.
+static\game_img\dq5_WsW7hxu.jpg, it is a binary file.
+static\game_img\dq5_ZTVIuDr.jpg, it is a binary file.
+static\game_img\erdR.jpg, it is a binary file.
+static\game_img\erdR_J2wIzvi.jpg, it is a binary file.
+static\game_img\erdR_k13elKG.jpg, it is a binary file.
+static\game_img\erdR_UTxSogv.jpg, it is a binary file.
+static\game_img\erdR_Yinpoix.jpg, it is a binary file.
+static\game_img\OIP.jpg, it is a binary file.
+static\game_img\packshot-pokemon-scarlet.png, it is a binary file.
+static\game_img\packshot-pokemon-scarlet_JmDdNOh.png, it is a binary file.
+static\game_img\packshot-pokemon-scarlet_JopCfa9.png, it is a binary file.
+static\game_img\packshot-pokemon-scarlet_oKqMTo3.png, it is a binary file.
+static\game_img\pixil-frame-0.png, it is a binary file.
+static\game_img\pn.jpg, it is a binary file.
+static\game_img\pn_1oJjKtL.jpg, it is a binary file.
+static\game_img\pn_7TC9AiE.jpg, it is a binary file.
+static\game_img\pn_hb3FYci.jpg, it is a binary file.
+static\game_img\pokemonPerla.jpg, it is a binary file.
+static\game_img\pokemonPerla_bENhNqQ.jpg, it is a binary file.
+static\game_img\pokemonPerla_dsddrcv.jpg, it is a binary file.
+static\game_img\R.jpg, it is a binary file.
+static\game_img\R_eSvaqSC.jpg, it is a binary file.
+static\game_img\R_VnKAWvx.jpg, it is a binary file.
+static\game_img\SpaceShipRed.png, it is a binary file.
+static\game_img\SpaceShipRed_DOIqtbr.png, it is a binary file.
+static\game_img\typesofmobileapps1.jpg, it is a binary file.
+static\game_img\typesofmobileapps1_pTy0q4y.jpg, it is a binary file.
+static\images\bkg2.jpg, it is a binary file.
+static\images\homeAlt.png, it is a binary file.
+static\images\homebkg.jpg, it is a binary file.
+static\images\homeBKG2.jpg, it is a binary file.
+static\images\titlePixel.png, it is a binary file.
+static\player_img\355NXc8.jpg, it is a binary file.
+static\player_img\campoBil.png, it is a binary file.
+static\player_img\campoBil_NvQqkqv.png, it is a binary file.
+static\player_img\campoBil_NZChMoU.png, it is a binary file.
+static\player_img\campoBil_SSdxyj9.png, it is a binary file.
+static\player_img\dq4.jpg, it is a binary file.
+static\player_img\dq4_H6DCxDX.jpg, it is a binary file.
+static\player_img\dq5.jpg, it is a binary file.
+static\player_img\erdR.jpg, it is a binary file.
+static\player_img\erdR_Ep952lm.jpg, it is a binary file.
+static\player_img\pn.jpg, it is a binary file.
+static\player_img\pn_GnD5PTd.jpg, it is a binary file.
+static\player_img\Profile.png, it is a binary file.
+static\player_img\Profile_SI1oxVX.png, it is a binary file.
+static\player_img\Profile_xJbFzk9.png, it is a binary file.
+static\player_img\SpaceShipRed.png, it is a binary file.
+static\player_img\SpaceShipRed_VAhnfer.png, it is a binary file.
+static\player_img\typesofmobileapps1.jpg, it is a binary file.
+static\publisher_img\355NXc8.jpg, it is a binary file.
+static\publisher_img\campoBil.png, it is a binary file.
+static\publisher_img\campoBil_1klO4Ic.png, it is a binary file.
+static\publisher_img\campoBil_3LsM0Iq.png, it is a binary file.
+static\publisher_img\campoBil_CWlqwkk.png, it is a binary file.
+static\publisher_img\campoBil_h90mvp7.png, it is a binary file.
+static\publisher_img\campoBil_hPGLbF5.png, it is a binary file.
+static\publisher_img\campoBil_IDBEdY0.png, it is a binary file.
+static\publisher_img\campoBil_Kud08Gq.png, it is a binary file.
+static\publisher_img\campoBil_LB7oJkw.png, it is a binary file.
+static\publisher_img\campoBil_Lt6saPC.png, it is a binary file.
+static\publisher_img\campoBil_pDwrqOF.png, it is a binary file.
+static\publisher_img\campoBil_Q7ZewTA.png, it is a binary file.
+static\publisher_img\campoBil_tAF1hgL.png, it is a binary file.
+static\publisher_img\campoBil_XnxRJFI.png, it is a binary file.
+static\publisher_img\packshot-pokemon-scarlet.png, it is a binary file.
+static\publisher_img\SpaceShipRed.png, it is a binary file.
+static\publisher_img\SpaceShipRed_3E7Xr2h.png, it is a binary file.
+static\publisher_img\SpaceShipRed_4e8496M.png, it is a binary file.
+static\publisher_img\SpaceShipRed_DQorRbF.png, it is a binary file.
+static\publisher_img\SpaceShipRed_dxeRYbd.png, it is a binary file.
+static\publisher_img\SpaceShipRed_fSkn2wO.png, it is a binary file.
+static\publisher_img\SpaceShipRed_k9theGA.png, it is a binary file.
+static\publisher_img\SpaceShipRed_mjHxotf.png, it is a binary file.
+static\publisher_img\SpaceShipRed_mlQGWR4.png, it is a binary file.
+static\publisher_img\SpaceShipRed_NTmyVrk.png, it is a binary file.
+static\publisher_img\SpaceShipRed_odiDFPt.png, it is a binary file.
+static\publisher_img\SpaceShipRed_ofuPDCJ.png, it is a binary file.
+static\publisher_img\SpaceShipRed_pO8bjA5.png, it is a binary file.
+static\publisher_img\SpaceShipRed_QvhWvZz.png, it is a binary file.
+static\publisher_img\SpaceShipRed_spkJ3u3.png, it is a binary file.
+static\publisher_img\SpaceShipRed_Y06PkCZ.png, it is a binary file.
+static\publisher_img\SpaceShipRed_YwTcBe1.png, it is a binary file.
+static\publisher_img\SpaceShipRed_zdVDPBY.png, it is a binary file.
+templates\base.html, code is 19, comment is 0, blank is 11.
+templates\basebs.html, code is 16, comment is 0, blank is 2.
+templates\home.html, code is 39, comment is 0, blank is 6.
+templates\playerRegCrispy.html, code is 15, comment is 0, blank is 10.
+templates\playerRegistrate.html, code is 64, comment is 0, blank is 20.
+templates\registration\login.html, code is 20, comment is 0, blank is 11.
+templates\user_create.html, code is 63, comment is 0, blank is 13.
+templates\user_register.html, code is 72, comment is 0, blank is 18.
+webapp\__init__.py, code is 0, comment is 0, blank is 0.
+webapp\__pycache__\__init__.cpython-39.pyc, it is a binary file.
+webapp\__pycache__\forms.cpython-39.pyc, it is a binary file.
+webapp\__pycache__\settings.cpython-39.pyc, it is a binary file.
+webapp\__pycache__\urls.cpython-39.pyc, it is a binary file.
+webapp\__pycache__\views.cpython-39.pyc, it is a binary file.
+webapp\asgi.py, code is 4, comment is 0, blank is 5.
+webapp\context_processors.py, code is 12, comment is 5, blank is 2.
+webapp\forms.py, code is 24, comment is 4, blank is 7.
+webapp\settings.py, code is 80, comment is 18, blank is 34.
+webapp\urls.py, code is 16, comment is 1, blank is 6.
+webapp\views.py, code is 32, comment is 7, blank is 13.
+webapp\wsgi.py, code is 4, comment is 0, blank is 5.
+===============================================================================

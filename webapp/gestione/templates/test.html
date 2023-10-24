@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Dettagli del Giocatore</h1>
+  
+  <ul>
+    <li>Nome: {{ player.name }}</li>
+    <li>Cognome: {{ player.surname }}</li>
+    <li>Età: {{ player.age }}</li>
+    <li>Console: {{ player.get_console_display }}</li>
+    <li>
+      Immagine:
+      {% if player.pict %}
+        <img src="{{ player.pict.url }}" alt="{{ player.name }}">
+      {% else %}
+        Nessuna immagine disponibile
+      {% endif %}
+    </li>
+    <li>
+      Giochi:
+      <ul>
+        {% for game in player.games.all %}
+          <li>{{ game.titolo }}</li>
+        {% endfor %}
+      </ul>
+    </li>
+  </ul>
+  
+{% endblock %}

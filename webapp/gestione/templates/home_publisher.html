@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            
+            display: flex;
+            
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 100%;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+        }
+        .sidebar, .content {
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .sidebar {
+            flex: 1;
+            background-color: #3b5998;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .sidebar button {
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4c69ba;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .content {
+            flex: 3;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .content img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .game-card {
+            display: flex; /* Usa il layout di flessbox */
+            
+            padding: 10px;
+            margin-bottom: 20px;
+            max-width: 600px;
+        }
+
+        .game-card img {
+            max-width: 200px;
+            height: auto;
+            margin-right: 10px; /* Aggiunge uno spazio tra l'immagine e il testo */
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="sidebar">
+            <a href="/gestione/profileView/{{ player_id }}"><button>Profile</button></a>
+            <a href="/gestione/modifyProfile"><button>Modify Profile</button></a>
+            <a href="/gestione/gamePub"><button>view my Games</button></a>
+            <a href="/gestione/gameReg"><button>publish Game</button></a>
+            <a href="/gestione/gameReg"><button>Game stats</button></a>
+            <a href="publisher.html"><button>view review</button></a>
+            <a href="settings.html"><button>Setting</button></a>
+        </div>
+        <div class="content">
+            <p>your top games</p>
+            <div class="row">
+                <div class="game-card">
+                {% for game in games %}
+                
+                        <img src="{{ game.pict.url }}" alt="{{ game.titolo }}">
+                {% endfor %}
+                </div>
+            </div>
+            
+        </div>
+    </div>
+{% endblock %}

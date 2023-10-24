@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrazione Giocatore</title>
+</head>
+<body>
+    <h1>Registrazione Giocatore</h1>
+    <form method="post" enctype="multipart/form-data"> <!-- Aggiunto 'enctype="multipart/form-data"' per gestire i file -->
+        {% csrf_token %}
+        <input type="hidden" name="use_existing_credentials" value="true">
+        
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="surname">Cognome:</label>
+        <input type="text" id="surname" name="surname" required><br>
+
+        <label for="age">Età:</label>
+        <input type="number" id="age" name="age" required><br>
+
+        
+        {% load countries %}
+    {% get_countries as countries %}
+    <label for="country">Country:</label>
+    <select id="country" name="country">
+        {% for country in countries %}
+            <option value="{{ country.code }}">{{ country.name }}</option>
+        {% endfor %}
+    </select><br>
+
+ 
+
+        <label for="console">Console:</label>
+        <select id="console" name="console" required>
+            <option value="switch">Nintendo Switch</option>
+            <option value="ps">PlayStation</option>
+            <option value="xbox">Xbox</option>
+        </select><br>
+
+        <label for="pict">Profile Picture:</label>
+        <input type="file" id="pict" name="pict" accept="image/*" required><br>
+
+        <input type="submit" value="Registrati">
+    </form>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href='{% static "css/homez_style.css" %}'>
+{% endblock %}
+
+{% block title %}
+    Your Page Title
+{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background-image: url('{% static "images/bkg2.jpg" %}');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        margin:50px;
+    }
+</style>
+    <div class="navbar">
+        <a href="login">Login</a>
+        <a href="registerP">Register</a>
+        <a href="registerPu">Register Publisher</a>
+        <a href="gestione/allGame">game Publisher</a>
+        <a href="info">Info</a>
+        <a href="logout">Logout</a>
+    </div>
+
+    <img id="mainImage" src="{% static 'images/titlePixel.png' %}" alt="Logo" height="120">
+
+    <div class="button-container">
+        <button id="b1" onclick="redirectToLink('/link_to_publisher_page')">Publisher</button>
+        <button id="b2" onclick="redirectToLink('/link_to_player_page')">Player</button>
+        <button onclick="window.location.href='gestione/addGames'" style="cursor:pointer;">game Publisher</button>
+        <button onclick="redirectToLink('/gestione/addGames')">Search games</button>
+        <a href="/gestione/addGames">game Publisher</a>
+    </div>
+    
+    <div class="image-container">
+        <img id="currentImage" src="" alt="Image">
+        <button id="nextButton" onclick="showNextImage()">Next Image</button>
+    </div>
+{% endblock %}

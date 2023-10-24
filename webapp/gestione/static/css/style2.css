@@ -1,0 +1,50 @@
+body {
+    background-image: url('static/images/bkg2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin:50px;
+}
+
+.navbar {
+    background-color: #333; /* Set your desired background color */
+    overflow: hidden;
+    position: fixed; /* Fissa la barra di navigazione in alto */
+    width: 100%; /* Rendi la barra di navigazione larga come la finestra del browser */
+    top: 0; /* Allinea la barra di navigazione all'alto della finestra del browser */
+    right: 0;
+}
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.button-container button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-container button:hover {
+    background-color: #0056b3;
+}

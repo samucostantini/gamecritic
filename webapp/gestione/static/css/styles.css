@@ -1,0 +1,18 @@
+.game-card {
+    border: 1px solid #884b4b;
+    padding: 10px;
+    margin-bottom: 20px;
+    max-width: 300px;
+    text-align: center; /* Centra il contenuto */
+}
+
+.game-card h1 {
+    font-size: 2em; /* Imposta la dimensione del titolo */
+    margin-bottom: 10px; /* Aggiunge un po' di spazio tra titolo e prezzo */
+}
+
+.game-card img {
+    max-width: 100%; /* Fai sì che l'immagine non superi la larghezza del contenitore */
+    height: auto;
+    margin: 10px 0; /* Aggiunge un po' di spazio sopra e sotto l'immagine */
+}

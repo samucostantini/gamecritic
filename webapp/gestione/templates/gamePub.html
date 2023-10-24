@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <style>
+        .game-card {
+            display: flex; /* Usa il layout di flessbox */
+            border: 1px solid #a03030;
+            padding: 10px;
+            margin-bottom: 20px;
+            max-width: 1000px;
+        }
+
+        .game-card img {
+            max-width: 300px;
+            height: auto;
+            margin-right: 10px; /* Aggiunge uno spazio tra l'immagine e il testo */
+        }
+
+        .game-card-info {
+            flex-grow: 1; /* Fai espandere il testo per occupare lo spazio rimanente */
+            text-align: left; /* Allinea il testo a sinistra */
+        }
+
+        .game-card h1 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        {% for game in games %}
+            <div class="col-md-4">
+                <div class="game-card">
+                    <img src="{{ game.pict.url }}" alt="{{ game.titolo }}">
+                    <div class="game-card-info">
+                        <h1>{{ game.titolo }}</h1>
+                        <p>Category: {{ game.category }}</p>
+                        <p>Console: {{ game.console }}</p>
+                        <p>Price: {{ game.price }}€</p>
+                        <p>Age: {{ game.age }}</p>
+                        <p>Description: {{ game.description }}</p>
+                        <form method="get" action="/gestione/gameAnalytics/{{game.id}}">
+                            <button type="submit">stat</button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

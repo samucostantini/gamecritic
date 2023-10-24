@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <style>
+        .game-card {
+            display: flex; /* Usa il layout di flessbox */
+            border: 1px solid #a03030;
+            padding: 10px;
+            margin-bottom: 20px;
+            max-width: 1000px;
+        }
+
+        .game-card img {
+            max-width: 300px;
+            height: auto;
+            margin-right: 10px; /* Aggiunge uno spazio tra l'immagine e il testo */
+        }
+
+        .game-card-info {
+            flex-grow: 1; /* Fai espandere il testo per occupare lo spazio rimanente */
+            text-align: left; /* Allinea il testo a sinistra */
+        }
+
+        .game-card h1 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+        .player-profile {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+          }
+          
+          .player-image img {
+            max-width: 150px;
+            border-radius: 50%;
+          }
+          
+          .no-image {
+            font-style: italic;
+            color: #999;
+          }
+          
+          .player-details {
+            margin-left: 20px;
+          }
+          
+          .player-details ul {
+            list-style: none;
+            padding: 0;
+          }
+          
+          .player-details ul li {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+          }
+    </style>
+{% endblock %}

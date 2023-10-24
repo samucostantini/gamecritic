@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="registration-container">
+    <h1>Game Registration</h1>
+    <form method="post" enctype="multipart/form-data" action="/gestione/gameReg/">
+        {% csrf_token %}
+
+        <label for="titolo">Title:</label>
+        <input type="text" id="titolo" name="titolo" required><br>
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" required><br>
+
+        <label for="age">Recommended age: </label>
+        <input type="number" id="age" name="age" required><br>
+
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+            {% for value, label in category_choices %}
+                <option value="{{ value }}">{{ label }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="console">Console:</label>
+        <select id="console" name="console" required>
+            {% for value, label in console_choices %}
+                <option value="{{ value }}">{{ label }}</option>
+            {% endfor %}
+        </select><br>
+        
+
+        <label for="pict">Picture:</label>
+        <input type="file" id="pict" name="pict" accept="image/*" required><br>
+        
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description" required></textarea><br>
+        <button type="submit">Register</button>
+    </form>
+</div>
+{% endblock %}

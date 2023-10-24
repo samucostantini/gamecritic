@@ -1,0 +1,62 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+
+    {% if review %}
+        <!-- Vecchia recensione -->
+        <h2>your old review</h2>
+        <p>Storia Narrazione: {{ review.plot_rating }}</p>
+        <p>Performance: {{ review.performance_rating }}</p>
+        <p>Gameplay: {{ review.gameplay_rating }}</p>
+        <p>Sonoro: {{ review.music_rating }}</p>
+        <p>Altro: {{ review.comment }}</p>
+    {% endif %}
+
+
+
+    {%if review%}
+    <h2>new review</h2>
+    {%endif%}
+
+    <!-- Voto complessivo -->
+    <label for="plot_rating">Storia Narrazione (da 1 a 10):</label>
+    <input type="number" id="plot_rating" name="plot_rating" min="1" max="5"><br><br>
+  
+    <!-- Grafica -->
+    <label for="performance_rating">performance (da 1 a 10):</label>
+    <input type="number" id="performance_rating" name="performance_rating" min="1" max="5"><br><br>
+  
+    <!-- Gameplay -->
+    <label for="gameplay_rating">Gameplay (da 1 a 10):</label>
+    <input type="number" id="gameplay_rating" name="gameplay_rating" min="1" max="5"><br><br>
+  
+    <!-- Storia/Narrazione -->
+    <label for="music_rating">sonoro (da 1 a 10):</label>
+    <input type="number" id="music_rating" name="music_rating" min="1" max="5"><br><br>
+  
+    <!-- Altro -->
+    <label for="notes">Altro:</label><br>
+    <textarea id="notes" name="notes" rows="4" cols="50"></textarea><br><br>
+    <input type="submit" value="Invia Recensione">
+    
+    {% if error_message %}
+    <script>
+        window.alert("Hai già recensito questo gioco.");
+    </script>
+    {% endif %}
+  </form>
+
+ 
+  {% endblock %}
+
+  {% block script %}
+  document.addEventListener('DOMContentLoaded', function() {
+      var reviewedAlert = document.getElementById('reviewed-alert');
+      {% if error_message %}  
+        window.alert("Testo del messaggio")
+      {% endif %}
+  });
+  {% endblock %}

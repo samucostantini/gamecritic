@@ -1,0 +1,379 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+<style>
+    .container {
+        display: flex;
+        
+    }
+
+    .search-bar {
+        text-align: center;
+        margin: 10px;
+    }
+    .dropdown {
+        margin-left:100px
+        text-align: right; 
+        display: inline-block;
+    }
+    
+    .dropbtn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+    
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+    
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    
+    .dropdown-content a:hover {background-color: #f1f1f1;}
+    
+    .dropdown:hover .dropdown-content {display: block;}
+    
+    .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+    .filter-menu {
+        flex: 1;
+        max-width: 250px;
+        margin-right: 0px;
+        margin-left:0px;
+        background-color: rgba(122,189,102,1); 
+        
+    }
+
+    .game-list {
+        flex: 1;
+    }
+
+    .filter-item {
+        margin-bottom: 10px;
+    }
+    .game-card {
+            
+        display: inline-block;
+        
+        vertical-align: top;
+        border: 1px solid #a03030;
+        padding: 10px;
+        margin:10px;
+        max-width: 550px;
+        min-width: 550px;
+        max-height: 300px;
+        min-height: 300px;
+    }
+
+    .game-card img {
+        max-height: 250px;
+        max-width: 250px;
+        width: auto;
+        vertical-align: top; 
+        
+    }
+
+    .game-card-info {
+        display: inline-block;
+        
+        vertical-align: top; /* Allinea il testo in alto */
+        margin-left: 10px; /* Aggiu
+    }
+
+    .game-card h1 {
+        font-size: 1.5em;
+        margin-bottom: 5px;
+    }
+
+   
+    .col-md-3 {
+        flex: 2;
+    }
+    
+    
+    .search-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    
+    #search_query {
+        width: 300px; /* Larghezza della casella di ricerca */
+        padding: 10px; /* Spazio interno */
+        font-size: 16px; /* Dimensione del testo */
+    }
+    
+    button[type="submitSearch"] {
+        background-color: #007BFF; /* Colore del pulsante */
+        color: #ffffff; /* Colore del testo */
+        border: none;
+        padding: 10px 20px; /* Spazio interno */
+        font-size: 16px; /* Dimensione del testo */
+        cursor: pointer;
+        margin-left: 10px; /* Spazio a sinistra del pulsante */
+    }
+    
+    button[type="submit"]:hover {
+        background-color: #0056b3; /* Cambia colore al passaggio del mouse */
+    }
+    product-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /* Spazio tra i prodotti */
+    }
+    
+    .product {
+        border: 1px solid #ccc;
+        padding: 10px;
+        width: 200px;
+        text-align: center;
+    }
+    .green-strip {
+        background-color: rgba(122,189,102,1);  /* Colore verde in esadecimale */
+        height: 50px; /* Altezza della striscia, modifica secondo le tue preferenze */
+        width: 100%; /* La striscia occupa tutta la larghezza disponibile */
+        display:flex;
+        gap: 20px; /* Spazio tra i prodotti */
+    }
+    .invisible-button {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+      
+    }
+    .rating-circle {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .rating-value {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+    
+{% endblock %}
+
+        {% block navbar %}
+            {{ block.super }}
+            <div class="navbar">
+                <a href="login">GAME CRITICS</a>
+           
+    
+            <a>
+                <form id="filter-form" method="post" action="/gestione/filterGamesbyRate/">
+                {% csrf_token %}
+                <input type="hidden" name="sort_by" value="rating">
+                <button type="submit">sort by rating</button>
+                </form>
+            </a>
+            <a>
+                <form id="filter-form" method="post" action="/gestione/filterGamesbyRate/">
+                {% csrf_token %}
+                <input type="hidden" name="sort_by" value="price">
+                <button type="submit">price asc</button>
+                </form>
+            </a>
+
+
+
+
+
+            </div>
+            
+            
+        {% endblock %}
+
+
+{% block content %}
+
+    <div class="container">
+        
+        <div class="filter-menu">
+            <!-- Aggiungi qui i tuoi filtri -->
+            <form id="filter-form" method="post" action="/gestione/filterGames/">
+                {% csrf_token %}
+                <div class="filter-item">
+                    <h2>Price Range</h2>
+                    <label for="min_price">Min Price:</label>
+                    <input type="number" id="min_price" name="min_price" min="0"><br><br>
+                    <label for="max_price">Max Price:</label>
+                    <input type="number" id="max_price" name="max_price" min="0">
+                    <p id="price-error" style="color: red; font-size: 12px; display: none;">Il prezzo massimo deve essere maggiore o uguale al prezzo minimo.</p>
+                </div>
+                <button type="submit">Vai</button>
+            </form>
+            
+           
+
+            <form method="post" action="/gestione/filterGames/">
+                {% csrf_token %}
+                
+                <div class="filter-item">
+                    <h2>Console</h2>
+                    <select id="console-filter" name="console-filter">
+                        {% for value, label in console_choices %}
+                            <option value="{{ value }}">{{ label }}</option>
+                        {% endfor %}
+                    
+                    
+                </select>
+            </div>
+            <button type="submit">Vai</button>
+        </form>
+
+        <form method="post" action="/gestione/filterGamebyName/">
+            {% csrf_token %}
+            <div class="filter-item">
+            <label for="game_name"><h2>Game Name:</h2></label>
+            <input type="text" id="game_name" name="game_name">
+            <script>
+                document.getElementById('game_name').addEventListener('input', function() {
+                    var input = this.value.toLowerCase();
+                    var suggestionsDiv = document.getElementById('suggestions');
+                    var suggestions = []; // Esempio di suggerimenti
+                    
+                    
+                    {% for game in games %}
+                        suggestions.push("{{ game.titolo }}");
+                    {% endfor %}
+                    
+                    // Rimuovi suggerimenti precedenti
+                    while (suggestionsDiv.firstChild) {
+                        suggestionsDiv.removeChild(suggestionsDiv.firstChild);
+                    }
+                
+                    // Mostra suggerimenti
+                    suggestions.forEach(function(suggestion) {
+                        if (suggestion.toLowerCase().indexOf(input) !== -1) {
+                            var suggestionElement = document.createElement('div');
+                            suggestionElement.textContent = suggestion;
+                            suggestionElement.addEventListener('click', function() {
+                                document.getElementById('game_name').value = suggestion;
+                                suggestionsDiv.style.display = 'none';
+                            });
+                            suggestionsDiv.appendChild(suggestionElement);
+                        }
+                    });
+                
+                    if (input === '') {
+                        suggestionsDiv.style.display = 'none';
+                    } else {
+                        suggestionsDiv.style.display = 'block';
+                    }
+                });
+            
+            
+            </script>
+            <button type="submit">Vai</button>
+            <div id="suggestions"></div>
+            </div>
+        </form>
+
+        </div>
+
+
+
+        
+        <div class="column">
+            {% for game in games %}
+                
+                
+                    <div class="game-card">
+                        <img src="{{ game.pict.url }}" alt="{{ game.titolo }}">
+                        <div class="game-card-info">
+                            <h1>{{ game.titolo }}</h1>
+                            <p>Category: {{ game.category }}</p>
+                            <p>Price: {{ game.price }}</p>
+                            <div class="rating-circle" id="rating_circle_{{ game.id }}">
+                                <div class="rating-value"></div>
+                            </div>
+                            <form method="get" action="/gestione/view_game_details/{{game.id}}">
+                                <button type="submit">View</button>
+                            </form>
+
+
+                        </div>
+                    </div>
+                    <script>
+                        var plot = {{ game.average_plot_rating }};
+                        var perf = {{ game.average_performance_rating }};
+                        var music = {{ game.average_music_rating }};
+                        var gameplay = {{ game.average_gameplay_rating }};
+                        var totalRating = (plot + perf + music + gameplay) / 4;
+                        
+                        var ratingCircle = document.getElementById('rating_circle_{{ game.id }}');
+                        var ratingValue = totalRating.toFixed(2);
+
+                        var hue = (totalRating / 5) * 120;  // Scala il valore massimo a 120 (massimo per hsl)
+    
+                        ratingCircle.style.backgroundColor = `hsl(${hue}, 50%, 70%)`;
+                        ratingCircle.querySelector('.rating-value').textContent = ratingValue;
+                    </script>
+            {% endfor %}
+        </div>
+        
+    </div>
+            
+        </div>
+
+       
+
+
+        
+        
+
+
+
+
+
+    
+{% endblock %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+        // Tuo codice JavaScript qui
+    document.getElementById('max-price').addEventListener('input', function() {
+        var minPrice = parseFloat(document.getElementById('min-price').value);
+        var maxPrice = parseFloat(this.value);
+
+        if (maxPrice < minPrice) {
+            document.getElementById('price-error').style.display = 'block';
+        } else {
+            document.getElementById('price-error').style.display = 'none';
+        }
+    });
+    
+    
+});
+
+
+</script>

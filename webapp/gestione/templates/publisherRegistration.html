@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="registration-container">
+    <h1>Publisher Registration</h1>
+    <form method="post" enctype="multipart/form-data" action="/gestione/publisherReg/">
+        {% csrf_token %}
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="website">Website:</label>
+        <input type="text" id="website" name="website" required><br>
+
+        <label for="pict">Profile Picture:</label>
+        <input type="file" id="pict" name="pict" accept="image/*" required><br>
+
+        <button type="submit">Register</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,126 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Overview of game: {{game.titolo}}</h1>
+<a href="/gestione/gameAnalytics/{{game.id}}/pdf">Scarica PDF</a>
+
+    
+
+    <p>average age:{{ average_age}}</p>
+    <p> your game has {{n}} review </p>
+    <p> average rating: {{av}} </p>
+    
+    <form method="post">
+        {% csrf_token %}
+        <label for="min_age">Minimum Age:</label>
+        <input type="number" name="min_age" id="min_age" required>
+    
+        <label for="max_age">Maximum Age:</label>
+        <input type="number" name="max_age" id="max_age" required>
+    
+        <input type="submit" value="Filter Players">
+    </form>
+
+    <p>Chart of average rating by category</p>
+    <div style="max-width: 400px; margin_left:0 auto;">
+        <canvas id="myChart" height="300"></canvas>
+    </div>
+
+    <div style="max-width: 300px; margin_left: 0 auto;">
+        <canvas id="myPieChart" height="100" width="100"></canvas>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>    
+document.addEventListener('DOMContentLoaded', function() {
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var dataPoints = {{ review|safe }}; 
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [],
+            datasets: [{
+                label: 'Data Points',
+                data: dataPoints,
+                backgroundColor: ['rgba(75, 192, 192, 0.2)','rgba(15, 102, 192, 0.2)', 'rgba(255, 99, 132, 0.2)', 'rgba(153, 102, 255, 0.2)'],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 0
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    
+});
+</script>
+{{country}}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // Grafico a torta
+        var ctxPie = document.getElementById('myPieChart').getContext('2d');
+        var dataPointsPie = {{ occurrency|safe }};
+        var labelsList = {{ country|safe }}; 
+
+        new Chart(ctxPie, {
+            type: 'pie',
+            data: {
+                labels: labelsList,
+                datasets: [{
+                    label: 'Data Points',
+                    data: dataPointsPie,
+                    backgroundColor: ['rgba(75, 192, 192, 0.2)','rgba(15, 102, 192, 0.2)', 'rgba(255, 99, 132, 0.2)', 'rgba(153, 102, 255, 0.2)'],
+                    borderColor: ['rgba(10, 10, 10, 10)'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    });
+</script>
+
+
+<p> your game has {{n}} review </p>
+    {% if reviews %}
+    
+    <h1>Recensioni per il gioco: {{ game.nome }}</h1>
+        <ul>
+            {% for review in reviews %}
+                <li>
+                    <strong>Giocatore:</strong> {{ review.player.name }} {{ review.player.surname }} age:{{review.player.age}}
+                    <br>
+                    <strong>Storia Narrazione:</strong> {{ review.plot_rating }}
+                    <br>
+                    <strong>Performance:</strong> {{ review.performance_rating }}
+                    <br>
+                    <strong>Gameplay:</strong> {{ review.gameplay_rating }}
+                    <br>
+                    <strong>Sonoro:</strong> {{ review.music_rating }}
+                    <br>
+                    <strong>Altro:</strong> {{ review.comment }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nessuna recensione disponibile per questo gioco.</p>
+    {% endif %}
+{% endblock %}
+
