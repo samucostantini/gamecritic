@@ -235,7 +235,7 @@
     </form>
     <div class="green-strip">
         <div class="dropdown">
-        <button class="dropbtn">GAME CRITICS</button>
+        <button class="dropbtn" onclick="window.location.href='/gestione/'">Game Critics</button>
         </div>
 
         <div class="dropdown">
@@ -339,7 +339,8 @@
             <div class="filter-item">
                 <h2>publisher</h2>
                 <select id="pub-filter" name="pub-filter">
-                    {% for pub in publisher %}
+                    <option value="all">all</option>
+                    {% for pub in p %}
                     <option value="{{ pub.name }}">{{ pub.name }}</option>
                     {% endfor %}
                 

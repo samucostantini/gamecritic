@@ -8,6 +8,13 @@
             border: 1px solid #ccc;
             padding: 10px;
         }
+        .green-strip {
+            background-color: rgba(122,189,102,1);  /* Colore verde in esadecimale */
+            height: 50px; /* Altezza della striscia, modifica secondo le tue preferenze */
+            width: 100%; /* La striscia occupa tutta la larghezza disponibile */
+            display:flex;
+            gap: 20px; /* Spazio tra i prodotti */
+        }
 
         .game-card img {
             max-width: 350px;
@@ -93,7 +100,14 @@
         
     </style>
     
+    <div class="navbar">        
+        <button class="dropbtn" onclick="window.location.href='/gestione/addGames'">Game Critics</button>
+    </div>
+    <p></p>
+    <p></p>
+    <p></p>
     <div class="row">
+        
         <div class="game-card">
             <img src="{{ game.pict.url }}" alt="{{ game.titolo }}">
             <div class="game-details">
@@ -105,6 +119,7 @@
                 <p>{{ game.description }}</p>
                 <p>This game was added by {{n}} players </p>
                 <div class="button-container">
+                {%if player%}
                     {% if game in player.games.all %}
                         
                         {% if reviewed %}
@@ -130,6 +145,7 @@
                     {% else %}
                             <p>You need to add this game before making a review.</p>
                     {% endif %}
+
                 <form method="post" enctype="multipart/form-data" action="/gestione/addGames/">
                     {% csrf_token %}
                     {% if game in player.games.all %}
@@ -140,6 +156,7 @@
                     <button class="review-button" type="submit">Add</button>
                     {%endif%}
                 </form>
+                {%endif%}
             </div>
             </div>
         </div>

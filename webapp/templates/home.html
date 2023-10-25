@@ -23,23 +23,20 @@
         <a href="login">Login</a>
         <a href="registerP">Register</a>
         <a href="registerPu">Register Publisher</a>
-        <a href="gestione/allGame">game Publisher</a>
         <a href="info">Info</a>
-        <a href="logout">Logout</a>
+        
     </div>
 
     <img id="mainImage" src="{% static 'images/titlePixel.png' %}" alt="Logo" height="120">
 
     <div class="button-container">
-        <button id="b1" onclick="redirectToLink('/link_to_publisher_page')">Publisher</button>
-        <button id="b2" onclick="redirectToLink('/link_to_player_page')">Player</button>
-        <button onclick="window.location.href='gestione/addGames'" style="cursor:pointer;">game Publisher</button>
-        <button onclick="redirectToLink('/gestione/addGames')">Search games</button>
-        <a href="/gestione/addGames">game Publisher</a>
+        <button onclick="window.location.href='/gestione/addGames'">Search games</button>
+        <button onclick="window.location.href='/gestione/playersPage'">Search player</button>
+        <button onclick="window.location.href='/gestione/publishersPage'">Search publisher</button>
+
+
+       
     </div>
     
-    <div class="image-container">
-        <img id="currentImage" src="" alt="Image">
-        <button id="nextButton" onclick="showNextImage()">Next Image</button>
-    </div>
+    
 {% endblock %}

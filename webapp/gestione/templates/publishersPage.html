@@ -235,23 +235,23 @@
     </form>
     <div class="green-strip">
         <div class="dropdown">
-        <button class="dropbtn">GAME CRITICS</button>
+            <button class="dropbtn" onclick="window.location.href='/gestione/'">Game Critics</button>
         </div>
 
         <div class="dropdown">
             <button class="dropbtn">Ordina per</button>
             <div class="dropdown-content">
                 <a>
-                    <form id="filter-form" method="post" action="/gestione/filterGamesbyRate/">
+                    <form id="filter-form" method="post" action="/gestione/publishersPage/">
                     {% csrf_token %}
-                    <input type="hidden" name="sort_by" value="rating">
+                    <input type="hidden" name="sort_by" value="name">
                     <button class="invisible-button"type="submit">name</button>
                     </form>
                 </a>
                 <a>
-                    <form id="filter-form" method="post" action="/gestione/filterGamesbyRate/">
+                    <form id="filter-form" method="post" action="/gestione/publishersPage/">
                     {% csrf_token %}
-                    <input type="hidden" name="sort_by" value="priceA">
+                    <input type="hidden" name="sort_by" value="similar">
                     <button class="invisible-button" type="submit">added games</button>
                     </form>
                 </a>

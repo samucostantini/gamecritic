@@ -235,23 +235,23 @@
     </form>
     <div class="green-strip">
         <div class="dropdown">
-        <button class="dropbtn">GAME CRITICS</button>
+        <button class="dropbtn" onclick="window.location.href='/gestione/'">Game Critics</button>
         </div>
 
         <div class="dropdown">
             <button class="dropbtn">Ordina per</button>
             <div class="dropdown-content">
                 <a>
-                    <form id="filter-form" method="post" action="/gestione/filterGamesbyRate/">
+                    <form id="filter-form" method="post" action="/gestione/playersPage/">
                     {% csrf_token %}
-                    <input type="hidden" name="sort_by" value="rating">
+                    <input type="hidden" name="sort_by" value="name">
                     <button class="invisible-button"type="submit">name</button>
                     </form>
                 </a>
                 <a>
-                    <form id="filter-form" method="post" action="/gestione/filterGamesbyRate/">
+                    <form id="filter-form" method="post" action="/gestione/playersPage/">
                     {% csrf_token %}
-                    <input type="hidden" name="sort_by" value="priceA">
+                    <input type="hidden" name="sort_by" value="similar">
                     <button class="invisible-button" type="submit">similar games</button>
                     </form>
                 </a>
@@ -277,34 +277,15 @@
 
     
         <div class="column">
-            {% for player in players %}
-                
-                
+            {% for player, count in players.items %}
                     <div class="game-card">
                         <img src="{{ player.pict.url }}" alt="{{ player.user.username }}">
                         <div class="game-card-info">
                             <h1>{{ player.user.username }}</h1>
                             <p>name: {{ player.name }}</p>
                             <p>surname: {{ player.surname }}</p>
-                            <p id="games-in-common-{{ player.id }}"></p>
-                            <script>
-                                var playerGames = [{% for game in player.games.all %}"{{ game.titolo }}"{% if not forloop.last %}, {% endif %}{% endfor %}];
-                                var p1Games = [{% for game in p1.games.all %}"{{ game.titolo }}"{% if not forloop.last %}, {% endif %}{% endfor %}];
-
-
-                                var count = 0;
-
-                                for (var i = 0; i < playerGames.length; i++) {
-                                    for (var j = 0; j < p1Games.length; j++) {
-                                        if (playerGames[i] == p1Games[j]) {
-                                            count++;
-                                        }
-                                    }
-                                }
+                            <p>you have {{count}} game/s in common</p>
                             
-                                document.getElementById("games-in-common-{{ player.id }}").innerHTML = "Games in common: " + count;
-        
-                            </script>
                             <form method="get" action="/gestione/view_game_details/{{game.id}}">
                                 <button type="submit">View</button>
                             </form>

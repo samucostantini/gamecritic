@@ -29,8 +29,10 @@ def publisher_registration(request):
         # Crea il profilo dell'editore
         publisher = Publisher(user=user, name=name, website=website, pict=pict)
         publisher.save()
+        
+        registrazione_avvenuta = True  # Indica che la registrazione è andata a buon fine
+        return render(request, 'publisherRegistration.html', {'registrazione_avvenuta': registrazione_avvenuta})
 
-        return redirect('/gestione/publisherHome')  # Sostituisci 'success_page' con il nome della tua pagina di successo
     return render(request, 'publisherRegistration.html')  # Assumi che il tuo template si chiami 'registration.html'
 
 

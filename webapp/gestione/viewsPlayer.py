@@ -8,7 +8,7 @@ from .models import *
 from .views import *
 
 from .utility import *
-
+from .forms import *
 
 from django.contrib.auth.models import User
 
@@ -25,9 +25,26 @@ def player_home(request):
             random_games = games
         
         return render(request, "home_player.html",{'games':random_games})
-    
-    
-    
+
+def player_registration2(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        surname = request.POST.get('surname')
+        pict = request.FILES['pict']
+        age=request.POST.get('age')
+        console=request.POST.get('console')
+        country = request.POST.get('country')
+
+        # Recupera l'utente autenticato
+        user = request.user
+
+        # Crea il profilo dell'editore
+        player = Player(user=user, name=name,surname=surname, age=age, pict=pict,console=console, country=country)
+        player.save()
+
+        return redirect("/gestione/playerHome") 
+    return render(request, 'playerRegistration.html')  
+     
 #-----------------player registration----------------------#
 @login_required
 def player_registration(request):
@@ -45,9 +62,11 @@ def player_registration(request):
         # Crea il profilo dell'editore
         player = Player(user=user, name=name,surname=surname, age=age, pict=pict,console=console, country=country)
         player.save()
+        registrazione_avvenuta = True  # Indica che la registrazione è andata a buon fine
+        return render(request, 'playerRegistration.html', {'registrazione_avvenuta': registrazione_avvenuta})
 
-        return reverse_lazy("gestione:playerHome") 
     return render(request, 'playerRegistration.html')  
+    
 
 
 def player_profile(request):

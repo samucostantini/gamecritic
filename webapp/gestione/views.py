@@ -113,7 +113,7 @@ def view_add_game(request):
     games=Game.objects.all
     
     publisher=Publisher.objects.all()
-    return render(request, 'addgamePub.html', {'games': games,'publisher':publisher})
+    return render(request, 'addgamePub.html', {'games': games,'p':publisher})
 
 #pagina del gioco
 
@@ -124,6 +124,19 @@ def view_game_details(request, game_id):
     
     p=Player.objects.filter(games=game)
     n=len(p)
+    
+    if is_group_publisher_member:
+        if request.method == "POST" and "sort_by" in request.POST:
+            sort_by = request.POST["sort_by"]
+            if sort_by == "asc":
+                reviews = sorted(reviews, key=lambda x: (x.plot_rating + x.music_rating + x.gameplay_rating + x.performance_rating) / 4)
+            elif sort_by == "des":
+                reviews = sorted(reviews, key=lambda x: (x.plot_rating + x.music_rating + x.gameplay_rating + x.performance_rating) / 4, reverse=True)
+            return render(request, "gamePage.html",{'game': game, 'reviews':reviews,'n':n})
+
+        return render(request, "gamePage.html", {'game': game, 'reviews':reviews,'n':n})
+        
+    
     player=Player.objects.get(user=request.user)
     
     reviewed=0
@@ -219,6 +232,7 @@ def filter_game_by_price(request):
         max = request.POST.get('max_price')
         console = request.POST.get('console-filter')
         category=request.POST.get('category-filter')
+        pub=request.POST.get('pub-filter')
         if min:
             min = float(min)
         else:
@@ -232,22 +246,23 @@ def filter_game_by_price(request):
         
     
     games = Game.objects.all()
-    filtered_games = list(games)  # Creo una copia della lista originale
+    filtered_games = list(games)  
 
-# Filtra per prezzo se i limiti sono specificati
+
     if min >= 0 and max < 1000:
         filtered_games = [g for g in filtered_games if min <= g.price <= max]
 
-# Filtra per console
     if console and console!="all":
         filtered_games = [g for g in filtered_games if g.console == console]
 
-# Filtra per categoria
     if category and category!="all":
         filtered_games = [g for g in filtered_games if g.category == category]
+    if pub and pub!="all":
+        filtered_games = [g for g in filtered_games if g.publisher.name == pub]
 
-    request.session['filtered_games'] = [game.id for game in filtered_games]  
-    return render(request, 'addgamePub.html', {'games': filtered_games})
+    request.session['filtered_games'] = [game.id for game in filtered_games]
+    p=Publisher.objects.all() 
+    return render(request, 'addgamePub.html', {'games': filtered_games, 'p':p})
 
 def filter_game_by_rating(request):
     filtered_games = request.session.get('filtered_games', [])
@@ -267,8 +282,8 @@ def filter_game_by_rating(request):
     elif sort_by == 'added':
         sorted_games = sort_games_by_most_added(filtered_games)
         games=Game.objects.filter(id__in=sorted_games)
-    
-    return render(request, 'addgamePub.html', {'games': games})
+    p=Publisher.objects.all() 
+    return render(request, 'addgamePub.html', {'games': games, 'p':p})
         
 def filter_game_by_name(request):
     games=Game.objects.all()
@@ -276,7 +291,8 @@ def filter_game_by_name(request):
         title=request.POST.get('game_name')
         games = Game.objects.filter(Q(titolo=title) | Q(titolo__startswith=title))
         request.session['filtered_games'] = [game.id for game in games]  
-        return render(request, 'addgamePub.html', {'games': games})
+        p=Publisher.objects.all() 
+        return render(request, 'addgamePub.html', {'games': games,'p':p})
     
     
     
@@ -352,10 +368,7 @@ def new_test(request):
     
     suggested_games = sorted(suggested_games_weights.keys(), key=suggested_games_weights.get, reverse=True)[:2]
     
-    
-    
     rec_game=get_recommended_games_by_category_added(user_games)
-    
     
     return render(request,'searchgames.html',{'games':games, 'top_games':top_games, 'recgames':recgames, 'category_game':category_game, 'sug_games':suggested_games})
 
@@ -370,8 +383,27 @@ def search_player(request):
     
     players=Player.objects.exclude(user=request.user)
     p1=Player.objects.get(user=request.user)
+    p1_games=set(p1.games.all())
+    players_game={}
     
-    return render(request, 'playersPage.html', {'players': players,'p1':p1})
+    for p in players:
+        gamep = set(p.games.all())
+        common_games = p1_games.intersection(gamep)
+        players_game[p] = len(common_games)
+        
+    if request.method == 'POST':
+        sort_by = request.POST.get('sort_by')
+        if sort_by == 'name':
+            players_game_sorted = dict(sorted(players_game.items(), key=lambda item: item[0].user.username))
+        if sort_by == 'similar':
+            players_game_sorted = dict(sorted(players_game.items(), key=lambda item: item[1], reverse=True))
+
+        return render(request, 'playersPage.html', {'players': players_game_sorted,'p1':p1})
+
+        
+    
+    return render(request, 'playersPage.html', {'players': players_game,'p1':p1})
+
 
 def search_publisher(request):
     
@@ -390,6 +422,15 @@ def search_publisher(request):
                 if g==g1:
                     count +=1
         publisher_game[publisher]=count
+        
+    if request.method == 'POST':
+        sort_by = request.POST.get('sort_by')
+        if sort_by == 'name':
+            publisher_game_sorted = dict(sorted(publisher_game.items(), key=lambda item: item[0].name))
+        if sort_by == 'similar':
+            publisher_game_sorted = dict(sorted(publisher_game.items(), key=lambda item: item[1], reverse=True))
+
+        return render(request, 'publishersPage.html', {'publisher_game':publisher_game_sorted, 'p1':p1})
     
     return render(request, 'publishersPage.html', {'publisher_game':publisher_game, 'p1':p1})
 
@@ -440,8 +481,6 @@ def analytics_game(request, game_id):
     occurrency = list(location_dict.values())
     
     country_codes = [country.code for country in countryL]
-    
-   
 
     return render(request, 'analyticsGame.html', {'occurrency':occurrency,'country':country_codes, 'av':av,
                                                   'game':game,'player':player, 'average_age':averageAge, 'n':n,'review':statList,'reviews':reviews})

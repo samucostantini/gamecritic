@@ -73,8 +73,17 @@
     
       </div>
       
-      <button type="submit" class="btn btn-success">Register</button>
-      
+      <button type="submit" class="btn btn-success" onclick="confermaEliminazione()">Register</button>
+      <script>
+        function confermaEliminazione() {
+            var conferma = confirm("Sei sicuro di voler eliminare questo elemento?");
+            if (conferma) {
+                alert("Elemento eliminato!");
+            } else {
+                alert("Nessuna azione eseguita.");
+            }
+        }
+    </script>
     </form>
   </div>
 </div>

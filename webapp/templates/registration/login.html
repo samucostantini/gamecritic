@@ -17,7 +17,58 @@
   Si è arrivati qui in quanto non si dispone dei permessi necessari per il servizio scelto!
 </div>
 {% endif %}
+<style>
+  body {
+    background-color: #f2f2f2; /* Replace with the shade of gray you want */
+  }
 
+  .form-group label {
+    font-size: 14px;
+  }
+
+  .form-group input {
+    font-size: 12px;
+  }
+
+  .btn {
+    font-size: 14px;
+  }
+  
+  .register-container {
+    width: 350px;
+    height: 250px;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .register-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .register-container button {
+      margin-left: 130px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+</style>
+<div class="register-container">
 <form method="post"> {% csrf_token %}
 
   {{form | crispy}}
@@ -25,7 +76,7 @@
   <input type="submit" class="btn btn-success" value="Esegui login">
   
   </form>
-
+</div>
 {% endblock %}
 
 {% block footer %} {% endblock %}

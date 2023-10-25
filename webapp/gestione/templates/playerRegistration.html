@@ -5,6 +5,7 @@
 </head>
 <body>
     <h1>Registrazione Giocatore</h1>
+    
     <form method="post" enctype="multipart/form-data"> <!-- Aggiunto 'enctype="multipart/form-data"' per gestire i file -->
         {% csrf_token %}
         <input type="hidden" name="use_existing_credentials" value="true">
@@ -40,7 +41,15 @@
         <label for="pict">Profile Picture:</label>
         <input type="file" id="pict" name="pict" accept="image/*" required><br>
 
-        <input type="submit" value="Registrati">
+        <input type="submit" value="Registrati" onclick="okRegister()">
+
+        
+  <script>
+    {% if registrazione_avvenuta %}
+    var conferma = window.confirm("player successfully registered");
+    window.location.href = "/gestione/playerHome";
+{% endif %}
+</script>
     </form>
 </body>
 </html>
