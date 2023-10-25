@@ -125,7 +125,7 @@ def view_game_details(request, game_id):
     p=Player.objects.filter(games=game)
     n=len(p)
     
-    if is_group_publisher_member:
+    if is_group_publisher_member(request.user):
         if request.method == "POST" and "sort_by" in request.POST:
             sort_by = request.POST["sort_by"]
             if sort_by == "asc":
@@ -184,7 +184,9 @@ def review_game(request, game_id):
         try:
             review = Review.objects.create(game=game, player=player, plot_rating=plot_rating, performance_rating=performance_rating, music_rating=music_rating, gameplay_rating=gameplay_rating, comment=comment)
             review.save()
-            return redirect('/gestione/addGames')
+            registrazione_avvenuta = True  # Indica che la registrazione è andata a buon fine
+            return render(request, 'reviewGame.html', {'game':game ,'registrazione_avvenuta': registrazione_avvenuta})
+            #return redirect('/gestione/addGames')
         except IntegrityError:
             error_message = "Hai già recensito questo gioco."
             return render(request, 'reviewGame.html', {'game': game, 'error_message': error_message})
