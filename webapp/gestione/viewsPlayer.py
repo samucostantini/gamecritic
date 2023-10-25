@@ -13,6 +13,11 @@ from .forms import *
 from django.contrib.auth.models import User
 
 # Create your views here.
+def is_group_publisher_member(user):
+    return user.groups.filter(name='Publisher').exists()
+
+def is_group_player_member(user):
+    return user.groups.filter(name='Player').exists()
 
 @login_required
 def player_home(request):
@@ -68,7 +73,8 @@ def player_registration(request):
     return render(request, 'playerRegistration.html')  
     
 
-
+@login_required
+@user_passes_test(is_group_player_member)
 def player_profile(request):
     if request.method == 'POST':
         game_id_del = request.POST.get('game_id_remove')
@@ -94,7 +100,8 @@ def game_recommended(request):
     
     
     
-    
+@login_required
+@user_passes_test(is_group_player_member)  
 def game_recommended(request):
     # Prendo tutti i player che hanno almeno un gioco in comune con il giocatore corrente
     player = Player.objects.get(user=request.user)
@@ -121,8 +128,6 @@ def game_recommended(request):
     
     
     rec_game=get_recommended_games_by_category_added(user_games)
-    
-    
     
     return render(request, 'gameRecom.html',{'games':suggested_games,'rec_game':rec_game})
      

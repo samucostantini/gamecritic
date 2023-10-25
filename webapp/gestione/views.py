@@ -89,18 +89,21 @@ def game_registration(request):
         publisher=Publisher.objects.get(user=request.user)
         game = Game(titolo=titolo, publisher=publisher, price=price, category=category, pict=pict, age=age, console=console, description=description)
         game.save()
-        return redirect('/gestione/publisherHome') ####!!!!!cooorrreeettttooo
+        registrazione_avvenuta = True  # Indica che la registrazione è andata a buon fine
+        return render(request, 'gameRegistration.html', {'category_choices':CATEGORY_CHOICES, 'console_choices':CONSOLE_CHOICES,'registrazione_avvenuta': registrazione_avvenuta})
+
+        
+        
+        return redirect('/gestione/publisherHome') 
+    
     return render(request, 'gameRegistration.html',{'category_choices':CATEGORY_CHOICES, 'console_choices':CONSOLE_CHOICES})
-
-
-#queste due le posso unire
 
 
 def all_game(request):
       games = Game.objects.all().order_by('price')
       return render(request, 'gamePub.html', {'games': games})
 
-#questa è la vista che vedono i player quando scelgono i giochi da aggiungere
+#all
 def view_add_game(request):
     if request.method == 'POST':
       
@@ -115,9 +118,8 @@ def view_add_game(request):
     publisher=Publisher.objects.all()
     return render(request, 'addgamePub.html', {'games': games,'p':publisher})
 
-#pagina del gioco
 
-
+#game page: player can see add review... user and publisher no
 def view_game_details(request, game_id):
     game = Game.objects.get(pk=game_id)
     reviews=Review.objects.filter(game=game)
@@ -192,6 +194,8 @@ def review_game(request, game_id):
             return render(request, 'reviewGame.html', {'game': game, 'error_message': error_message})
     return render(request, 'reviewGame.html', {'game': game})
 
+@login_required
+@user_passes_test(is_group_player_member)
 def delete_review(request, review_id):
     review=Review.objects.get(id=review_id)
     
@@ -200,6 +204,8 @@ def delete_review(request, review_id):
         return redirect('/gestione/addGames')
     return render(request, 'deleteReview.html', {'review': review})
 
+@login_required
+@user_passes_test(is_group_player_member)
 def modify_review(request, review_id):
     review=Review.objects.get(id=review_id)
     player = Player.objects.get(user=request.user)
@@ -297,7 +303,8 @@ def filter_game_by_name(request):
         return render(request, 'addgamePub.html', {'games': games,'p':p})
     
     
-    
+@login_required
+@user_passes_test(is_group_player_member)   
 def game_recommended(request):
     # Prendo tutti i player che hanno almeno un gioco in comune con il giocatore corrente
     player = Player.objects.get(user=request.user)
@@ -328,7 +335,9 @@ def game_recommended(request):
     
     
     return render(request, 'gameRecom.html',{'games':suggested_games,'rec_game':rec_game})  
-    
+
+@login_required
+@user_passes_test(is_group_player_member) 
 def new_test(request):
     #devo passare
     #top rated games (3) most added ok
@@ -437,9 +446,15 @@ def search_publisher(request):
     return render(request, 'publishersPage.html', {'publisher_game':publisher_game, 'p1':p1})
 
 
-
+@login_required
+@user_passes_test(is_group_publisher_member)
 def analytics_game(request, game_id):
+    
     game=Game.objects.get(pk=game_id)
+    publisher = Publisher.objects.get(user=request.user)
+    
+    if game.publisher != publisher:
+        return redirect('/gestione/publisherHome')
     
     if request.method == 'POST':
         min_age = request.POST.get('min_age')

@@ -35,7 +35,16 @@
         
         <label for="description">Description:</label><br>
         <textarea id="description" name="description" required></textarea><br>
-        <button type="submit">Register</button>
+        
+        <input type="submit" value="Register" onclick="okRegister()">
+
+        
+  <script>
+    {% if registrazione_avvenuta %}
+    var conferma = window.confirm("game successfully registered");
+    window.location.href = "/gestione/publisherHome";
+{% endif %}
+</script>
     </form>
 </div>
 {% endblock %}

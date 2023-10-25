@@ -59,7 +59,9 @@ def show_game_stat(request, game_id):
     game=Game.objects.get(pk=game_id)
     reviews=Review.objects.filter(game=game)
     return render(request,'showgameReview.html',{'reviews':reviews})
-    
+
+@login_required
+@user_passes_test(is_group_publisher_member)
 def show_allGames_stat(request):
     pub=Publisher.objects.get(user=request.user)
     games=Game.objects.filter(publisher=pub)
