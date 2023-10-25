@@ -289,7 +289,7 @@ def filter_game_by_rating(request):
         games = Game.objects.filter(id__in=filtered_games).order_by('-price')
     elif sort_by == 'added':
         sorted_games = sort_games_by_most_added(filtered_games)
-        games=Game.objects.filter(id__in=sorted_games)
+        games=sorted_games
     p=Publisher.objects.all() 
     return render(request, 'addgamePub.html', {'games': games, 'p':p})
         

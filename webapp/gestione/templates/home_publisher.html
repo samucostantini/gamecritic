@@ -77,7 +77,7 @@
             <a href="/gestione/modifyProfile"><button>Modify Profile</button></a>
             <a href="/gestione/gamePub"><button>view my Games</button></a>
             <a href="/gestione/gameReg"><button>publish Game</button></a>
-            <a href="/gestione/gameReg"><button>Game stats</button></a>
+            <a href="/gestione/analyzeAll"><button>all game stats</button></a>
             <a href="publisher.html"><button>view review</button></a>
             <a href="settings.html"><button>Setting</button></a>
         </div>
@@ -86,7 +86,6 @@
             <div class="row">
                 <div class="game-card">
                 {% for game in games %}
-                
                         <img src="{{ game.pict.url }}" alt="{{ game.titolo }}">
                 {% endfor %}
                 </div>

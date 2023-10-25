@@ -1,7 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'basebs.html' %}
 
 {% block content %}
-<div class="registration-container">
+<div class="register-container">
     <h1>Game Registration</h1>
     <form method="post" enctype="multipart/form-data" action="/gestione/gameReg/">
         {% csrf_token %}
