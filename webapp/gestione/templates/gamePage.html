@@ -112,7 +112,7 @@
             <img src="{{ game.pict.url }}" alt="{{ game.titolo }}">
             <div class="game-details">
                 <div class="game-title"><h1>{{ game.titolo }}</h1></div>
-                <p>by {{game.publisher.name}}</p>
+                <p>by <a href="/gestione/publisherProfile/{{game.publisher.id}}">{{game.publisher.name}}</a></p>
                 <p>Category: {{ game.category }}</p>
                 <p>Price: {{ game.price }}</p>
                 <p>Recommended age: {{ game.age }}</p>
@@ -166,7 +166,8 @@
 
     {% for review in reviews %}
     <div class="review">
-        Review for {{ review.game.titolo }} by {{ review.player.user.username }}    <div class="dropdown">
+        Review for {{ review.game.titolo }} by <a href="/gestione/playerProfile/{{review.player.id}}">{{ review.player.user.username }}</a>    <div class="dropdown">
+            
             <div class="button-container">
             <button class="review-button">sort by</button></div>
             <div class="dropdown-content">

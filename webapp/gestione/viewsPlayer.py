@@ -79,6 +79,8 @@ def player_profile(request,player_id):
     player = Player.objects.get(id=player_id)
     return render(request, 'playerProfile.html', {'player': player})
 
+
+#credo si possa eliminare
 @login_required
 @user_passes_test(is_group_player_member)
 def player_profile_ext(request,player_id):

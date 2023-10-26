@@ -39,14 +39,15 @@ def publisher_registration(request):
 @user_passes_test(is_group_publisher_member)
 def publisher_home(request):
      if request.user.groups.filter(name='Publisher').exists():
-         #!!!!!!!!aggiungi funzione per controllare il numero di aggiunte per gioco poi seleziona solo i primi 2
-        games = Game.objects.filter(publisher=Publisher.objects.get(user=request.user))
-        return render(request,"home_publisher.html",{'games': games})
+        publisher=Publisher.objects.get(user=request.user)
+        games = Game.objects.filter(publisher=publisher)
+        return render(request,"home_publisher.html",{'games': games, 'publisher':publisher})
 
-@user_passes_test(is_group_publisher_member)
-def publisher_profile(request):
-    publisher = Publisher.objects.get(user=request.user)
-    return render(request, 'publisherProfile.html', {'publisher': publisher})
+
+def publisher_profile(request,publisher_id):
+    publisher = Publisher.objects.get(id=publisher_id)
+    games=Game.objects.filter(publisher=publisher)
+    return render(request, 'publisherProfile.html', {'publisher': publisher, 'games':games})
 
 
 

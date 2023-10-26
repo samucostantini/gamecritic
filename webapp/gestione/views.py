@@ -469,7 +469,7 @@ def search_player(request):
 def search_publisher(request):
     publishers=Publisher.objects.all()
     
-    if request.user.is_anonymous:
+    if request.user.is_anonymous or request.user.groups.filter(name='Publisher').exists():
         is_an=1
         publisher_game={}
         for publisher in publishers:
@@ -483,6 +483,8 @@ def search_publisher(request):
 
             return render(request, 'publishersPage.html', {'publisher_game':publisher_game_sorted,'is_an':is_an})
         return render(request, 'publishersPage.html', {'publisher_game':publisher_game,'is_an':is_an})
+    
+  
     
             
         
