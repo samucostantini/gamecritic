@@ -13,7 +13,7 @@ urlpatterns = [
     path('', view_page2, name='viewPage'),
     path('playerHome/', player_home, name='player_home'),
     path('playerReg/', player_registration, name='player_registration'),
-    path('playerProfile/',player_profile, name='player_profile'),
+    path('playerProfile/<int:player_id>/',player_profile, name='player_profile'),
     #path('playerProfile/<int:player_id>/',player_profile, name='player_profile'),
     path('publisherHome/', publisher_home, name='publisher_home'),
     path('publisherReg/', publisher_registration, name='publisher_registration'),
@@ -50,6 +50,8 @@ urlpatterns = [
     
     path('playersPage/',search_player,name='search_player'),
     path('publishersPage/',search_publisher,name='search_publisher'),
+    
+    path('addRemoveGame/',add_remove_game,name='add_remove_game'),
     
     
 ]

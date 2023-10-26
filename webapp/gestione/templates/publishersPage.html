@@ -248,6 +248,8 @@
                     <button class="invisible-button"type="submit">name</button>
                     </form>
                 </a>
+                {%if is_an%}
+                {%else%}
                 <a>
                     <form id="filter-form" method="post" action="/gestione/publishersPage/">
                     {% csrf_token %}
@@ -255,6 +257,7 @@
                     <button class="invisible-button" type="submit">added games</button>
                     </form>
                 </a>
+                {%endif%}
                 
                 
             </div>

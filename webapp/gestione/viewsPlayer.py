@@ -29,7 +29,7 @@ def player_home(request):
         else:
             random_games = games
         
-        return render(request, "home_player.html",{'games':random_games})
+        return render(request, "home_player.html",{'games':random_games,'player':player})
 
 def player_registration2(request):
     if request.method == 'POST':
@@ -73,9 +73,15 @@ def player_registration(request):
     return render(request, 'playerRegistration.html')  
     
 
+
+def player_profile(request,player_id):
+    
+    player = Player.objects.get(id=player_id)
+    return render(request, 'playerProfile.html', {'player': player})
+
 @login_required
 @user_passes_test(is_group_player_member)
-def player_profile(request):
+def player_profile_ext(request,player_id):
     if request.method == 'POST':
         game_id_del = request.POST.get('game_id_remove')
         game = Game.objects.get(id=game_id_del)

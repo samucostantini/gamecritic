@@ -59,7 +59,8 @@ def view_page(request):
     
     #se utente è un player fai il render di questa pagina per salvare le info nome cognome eccetera
     if request.user.groups.filter(name='Player').exists():
-        return render(request, template_name="home_player.html", context= {'username': request.user.username})
+        player=Player.objects.get(user=request.user)
+        return render(request, template_name="home_player.html", context= {'username': request.user.username,'player':player})
     if request.user.groups.filter(name='Publisher').exists():
         return render(request, template_name="publisherReg.html", context= {'username': request.user.username})
     #else è azienda
@@ -109,8 +110,12 @@ def view_add_game(request):
       
         game_id = request.POST.get('game_id')
         game = Game.objects.get(pk=game_id)
-        request.user.player.games.add(game)
-        return redirect('/gestione/addGames')
+        if game in request.user.player.games.all():
+            request.user.player.games.remove(game)
+        else:
+            request.user.player.games.add(game)
+        
+        return redirect('/gestione/view_game_details/'+game_id)
 
     #games = Game.objects.exclude(player=request.user.player).order_by('titolo')
     games=Game.objects.all
@@ -166,6 +171,19 @@ def view_game_details(request, game_id):
     #games = Game.objects.get()
     #return render(request, "gamePage.html",{'games': games} )
 
+def add_remove_game(request):
+    if request.method == 'POST':
+        game_id = request.POST.get('game_id')
+        player = request.user.player  # Assuming you have a one-to-one relationship between User and Player
+        game = Game.objects.get(id=game_id)
+
+        if game in player.games.all():
+            player.games.remove(game)
+        else:
+            player.games.add(game)
+
+    return redirect('/gestione/addGames/')
+
 @login_required
 @user_passes_test(is_group_player_member)
 def review_game(request, game_id):
@@ -198,10 +216,10 @@ def review_game(request, game_id):
 @user_passes_test(is_group_player_member)
 def delete_review(request, review_id):
     review=Review.objects.get(id=review_id)
-    
+    game=review.game
     if request.method == 'POST':
         review.delete()
-        return redirect('/gestione/addGames')
+        return redirect('/gestione/view_game_details/'+str(game.id))
     return render(request, 'deleteReview.html', {'review': review})
 
 @login_required
@@ -227,7 +245,7 @@ def modify_review(request, review_id):
         # Crea una nuova recensione con i nuovi valori
         review = Review.objects.create(game=game, player=player, plot_rating=plot_rating, performance_rating=performance_rating, music_rating=music_rating, gameplay_rating=gameplay_rating, comment=comment)
         review.save()
-        return redirect('/gestione/addGames')
+        return redirect('/gestione/view_game_details/'+str(game.id))
 
     return render(request, 'reviewGame.html', {'game': game, 'review': review})
     
@@ -392,6 +410,38 @@ def todel(request):
 
 def search_player(request):
     
+    if request.user.is_anonymous:
+        players_game={}
+        for p in Player.objects.all():
+            players_game[p]=0
+            
+        if request.method == 'POST':
+            sort_by = request.POST.get('sort_by')
+            if sort_by == 'name':
+                players_game_sorted = dict(sorted(players_game.items(), key=lambda item: item[0].user.username))
+            if sort_by == 'similar':
+                players_game_sorted = dict(sorted(players_game.items(), key=lambda item: item[1], reverse=True))
+            return render(request, 'playersPage.html', {'players': players_game_sorted})
+        return render(request, 'playersPage.html', {'players': players_game})
+    
+    if request.user.groups.filter(name='Publisher').exists():
+        is_pub=1
+        publisher=Publisher.objects.get(user=request.user)
+        players=Player.objects.all()
+        games=Game.objects.filter(publisher=publisher)
+        players_game={}
+        for p in players:
+            players_game[p]= len(Game.objects.filter(publisher=publisher, id__in=p.games.all()))
+        if request.method == 'POST':
+            sort_by = request.POST.get('sort_by')
+            if sort_by == 'name':
+                players_game_sorted = dict(sorted(players_game.items(), key=lambda item: item[0].user.username))
+            if sort_by == 'similar':
+                players_game_sorted = dict(sorted(players_game.items(), key=lambda item: item[1], reverse=True))
+            return render(request, 'playersPage.html', {'players': players_game_sorted,'is_pub':is_pub})
+        return render(request, 'playersPage.html', {'players': players_game, 'is_pub':is_pub})  
+        
+    
     players=Player.objects.exclude(user=request.user)
     p1=Player.objects.get(user=request.user)
     p1_games=set(p1.games.all())
@@ -417,9 +467,28 @@ def search_player(request):
 
 
 def search_publisher(request):
-    
-    p1=Player.objects.get(user=request.user)
     publishers=Publisher.objects.all()
+    
+    if request.user.is_anonymous:
+        is_an=1
+        publisher_game={}
+        for publisher in publishers:
+            publisher_game[publisher]=0
+        if request.method == 'POST':
+            sort_by = request.POST.get('sort_by')
+            if sort_by == 'name':
+                publisher_game_sorted = dict(sorted(publisher_game.items(), key=lambda item: item[0].name))
+            if sort_by == 'similar':
+                publisher_game_sorted = dict(sorted(publisher_game.items(), key=lambda item: item[1], reverse=True))
+
+            return render(request, 'publishersPage.html', {'publisher_game':publisher_game_sorted,'is_an':is_an})
+        return render(request, 'publishersPage.html', {'publisher_game':publisher_game,'is_an':is_an})
+    
+            
+        
+        
+    p1=Player.objects.get(user=request.user)
+    
     games=Game.objects.all()
     
     usergames=set(p1.games.all())

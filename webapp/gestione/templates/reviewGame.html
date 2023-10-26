@@ -46,7 +46,7 @@
     <script>
       {% if registrazione_avvenuta %}
       var conferma = window.confirm("reviw successfully registered");
-      window.location.href = "/gestione/addGames";
+      window.location.href = "/gestione/view_game_details/{{game.id}}";
   {% endif %}
   </script>
     

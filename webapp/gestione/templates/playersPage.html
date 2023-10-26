@@ -252,7 +252,11 @@
                     <form id="filter-form" method="post" action="/gestione/playersPage/">
                     {% csrf_token %}
                     <input type="hidden" name="sort_by" value="similar">
+                    {%if is_pub%}
+                    <button class="invisible-button" type="submit">added games</button>
+                    {%else%}
                     <button class="invisible-button" type="submit">similar games</button>
+                    {%endif%}
                     </form>
                 </a>
                 
@@ -284,9 +288,14 @@
                             <h1>{{ player.user.username }}</h1>
                             <p>name: {{ player.name }}</p>
                             <p>surname: {{ player.surname }}</p>
+                            {%if is_pub%}
+                            <p> this player added {{count}} of your game/s </p>
+                            {%else%}
                             <p>you have {{count}} game/s in common</p>
+                            {%endif%}
                             
-                            <form method="get" action="/gestione/view_game_details/{{game.id}}">
+                            
+                            <form method="get" action="/gestione/playerProfile/{{player.id}}">
                                 <button type="submit">View</button>
                             </form>
 
