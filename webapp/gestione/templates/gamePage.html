@@ -194,9 +194,9 @@
             <p>Recommended age: {{ rec_game.age }}</p>
             <p>{{ rec_game.description }}</p>
             <p>This game was added by {{n}} players </p>
-            <div class="button-container">
-                <button class="review-button" type="submit">View</button>
-            </div>
+            <form method="get" action="/gestione/view_game_details/{{rec_game.id}}">
+                <button  class="review-button" type="submit">View</button>
+            </form>
         </div>
     </div>
     {%endif%}

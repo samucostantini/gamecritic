@@ -35,6 +35,27 @@ def publisher_registration(request):
 
     return render(request, 'publisherRegistration.html')  # Assumi che il tuo template si chiami 'registration.html'
 
+@login_required
+def edit_publisher_profile(request):
+    user = request.user
+    publisher = Publisher.objects.get(user=user)
+
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        website = request.POST.get('website')
+        pict = request.FILES.get('pict')
+
+        # Aggiorna i campi del profilo dell'editore
+        publisher.name = name
+        publisher.website = website
+        if pict:
+            publisher.pict = pict
+        publisher.save()
+        
+        registrazione_avvenuta = True  # Indica che la modifica è andata a buon fine
+        return render(request, 'editPublisherProfile.html', {'registrazione_avvenuta': registrazione_avvenuta})
+
+    return render(request, 'editPublisherProfile.html', {'publisher': publisher})
 
 @user_passes_test(is_group_publisher_member)
 def publisher_home(request):
