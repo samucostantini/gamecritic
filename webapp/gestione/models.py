@@ -22,7 +22,10 @@ class Publisher(models.Model):
     website=models.CharField(max_length=100)
     pict=models.ImageField(upload_to="static/publisher_img",blank=True, null=True,default="null")
     
-    
+
+class Image(models.Model):
+    image = models.ImageField(upload_to="static/game_img", blank=True, null=True,default="null")
+
 
 class Game(models.Model):
     
@@ -42,6 +45,9 @@ class Game(models.Model):
     average_gameplay_rating = models.FloatField(default=0)
     average_performance_rating = models.FloatField(default=0)
     total_reviews = models.PositiveIntegerField(default=0)
+    
+    images = models.ManyToManyField(Image, blank=True)
+
     def update_average_ratings(self):
         reviews = Review.objects.filter(game=self)
         if reviews.exists():

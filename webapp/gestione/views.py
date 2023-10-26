@@ -90,6 +90,18 @@ def game_registration(request):
         publisher=Publisher.objects.get(user=request.user)
         game = Game(titolo=titolo, publisher=publisher, price=price, category=category, pict=pict, age=age, console=console, description=description)
         game.save()
+        
+        images = request.FILES.getlist('images')
+
+        # Controlla se sono state caricate meno di 10 immagini
+        if len(images) > 10:
+            return HttpResponse("Puoi caricare al massimo 10 immagini.")
+
+        # Salva le immagini e associale al gioco
+        for image in images:
+            new_image = Image(image=image)
+            new_image.save()
+            game.images.add(new_image)
         registrazione_avvenuta = True  # Indica che la registrazione è andata a buon fine
         return render(request, 'gameRegistration.html', {'category_choices':CATEGORY_CHOICES, 'console_choices':CONSOLE_CHOICES,'registrazione_avvenuta': registrazione_avvenuta})
 
@@ -127,6 +139,7 @@ def view_add_game(request):
 #game page: player can see add review... user and publisher no
 def view_game_details(request, game_id):
     game = Game.objects.get(pk=game_id)
+    images = game.images.all()
     reviews=Review.objects.filter(game=game)
     
     p=Player.objects.filter(games=game)
@@ -139,9 +152,9 @@ def view_game_details(request, game_id):
                 reviews = sorted(reviews, key=lambda x: (x.plot_rating + x.music_rating + x.gameplay_rating + x.performance_rating) / 4)
             elif sort_by == "des":
                 reviews = sorted(reviews, key=lambda x: (x.plot_rating + x.music_rating + x.gameplay_rating + x.performance_rating) / 4, reverse=True)
-            return render(request, "gamePage.html",{'game': game, 'reviews':reviews,'n':n})
+            return render(request, "gamePage.html",{'game': game,'images':images ,'reviews':reviews,'n':n})
 
-        return render(request, "gamePage.html", {'game': game, 'reviews':reviews,'n':n})
+        return render(request, "gamePage.html", {'game': game, 'images':images,'reviews':reviews,'n':n})
         
     
     player=Player.objects.get(user=request.user)
@@ -163,10 +176,10 @@ def view_game_details(request, game_id):
             reviews = sorted(reviews, key=lambda x: (x.plot_rating + x.music_rating + x.gameplay_rating + x.performance_rating) / 4)
         elif sort_by == "des":
             reviews = sorted(reviews, key=lambda x: (x.plot_rating + x.music_rating + x.gameplay_rating + x.performance_rating) / 4, reverse=True)
-        return render(request, "gamePage.html", {'game': game, 'reviews':reviews,'player':player,'n':n,'rec_game':rec_game, 'reviewed':reviewed})
+        return render(request, "gamePage.html", {'game': game,'images':images, 'reviews':reviews,'player':player,'n':n,'rec_game':rec_game, 'reviewed':reviewed})
 
     
-    return render(request, "gamePage.html", {'game': game, 'reviews':reviews,'player':player,'n':n,'rec_game':rec_game, 'reviewed':reviewed})
+    return render(request, "gamePage.html", {'game': game,'images':images, 'reviews':reviews,'player':player,'n':n,'rec_game':rec_game, 'reviewed':reviewed})
     
     #games = Game.objects.get()
     #return render(request, "gamePage.html",{'games': games} )

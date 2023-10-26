@@ -75,6 +75,7 @@
             </div>
         </div>
     </div>
+
     
    
 
@@ -144,8 +145,6 @@
     </script>
 {% endfor %}
 
-
-
 {%if reviews%}
     <div class="controls">
         <button class="review-button" id="prevBtn">Previous</button>
@@ -182,6 +181,57 @@
     showReview(currentReview);
 </script>
 
+{%if images%}
+    <h3> other images</h3>
+    {%endif%}
+    {%if images%}
+<div class="game-card">
+    
+    
+        {% for image in images %}
+            <img class="game-image" src="{{ image.image.url }}" alt="{{ game.titolo }} - Image">
+        {% endfor %}
+</div>  
+    <button class="review-button" >Previous</button>
+    <button class="review-button" >Next</button>
+
+
+<script>
+    const images = document.querySelectorAll('.game-image');
+    const prevButton = document.querySelector('.prev-button');
+    const nextButton = document.querySelector('.next-button');
+    let currentIndex = 0;
+
+    function showImages(startIndex) {
+        images.forEach((image, index) => {
+            if (index >= startIndex && index < startIndex + 5) {
+                image.style.display = 'block';
+            } else {
+                image.style.display = 'none';
+            }
+        });
+    }
+
+    prevButton.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex -= 5;
+            showImages(currentIndex);
+        }
+    });
+
+    nextButton.addEventListener('click', () => {
+        if (currentIndex < images.length - 5) {
+            currentIndex += 5;
+            showImages(currentIndex);
+        }
+    });
+
+    showImages(currentIndex);
+</script>
+
+{%endif%}
+
+
 {%if rec_game %}
     <h2>player who watched {{game.titolo}} also watched this game </h2>
     <div class="game-card">
@@ -200,5 +250,6 @@
         </div>
     </div>
     {%endif%}
+
 
 {% endblock %}
