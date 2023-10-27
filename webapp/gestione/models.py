@@ -47,6 +47,9 @@ class Game(models.Model):
     total_reviews = models.PositiveIntegerField(default=0)
     
     images = models.ManyToManyField(Image, blank=True)
+    
+    class Meta:
+        unique_together = ('titolo', 'console')
 
     def update_average_ratings(self):
         reviews = Review.objects.filter(game=self)
