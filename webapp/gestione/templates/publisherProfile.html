@@ -1,4 +1,4 @@
-{% extends 'basebs.html' %}
+{% extends 'basenav.html' %}
 
 {% block content %}
 
@@ -13,6 +13,35 @@
       display: flex;
       
     }
+    .player-profile {
+        display: flex;
+        align-items: center;
+        margin: 20px;
+      }
+      
+      .player-image img {
+        max-width: 150px;
+        border-radius: 50%;
+      }
+      
+      .no-image {
+        font-style: italic;
+        color: #999;
+      }
+      
+      .player-details {
+        margin-left: 20px;
+      }
+      
+      .player-details ul {
+        list-style: none;
+        padding: 0;
+      }
+      
+      .player-details ul li {
+        margin-bottom: 10px;
+        font-size: 1.2em;
+      }
   
   
   .game-card {

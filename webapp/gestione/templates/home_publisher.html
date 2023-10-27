@@ -86,14 +86,13 @@
  
         </div>
         <div class="content">
-            <p>your top games</p>
-            <div class="row">
+
                 <div class="game-card">
                 {% for game in games %}
                         <img src="{{ game.pict.url }}" alt="{{ game.titolo }}">
                 {% endfor %}
                 </div>
-            </div>
+
             
         </div>
     </div>

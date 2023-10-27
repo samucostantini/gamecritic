@@ -73,6 +73,37 @@ def player_registration(request):
     return render(request, 'playerRegistration.html')  
     
 
+@login_required
+def edit_player_profile(request):
+    user = request.user
+    player = Player.objects.get(user=user)
+
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        surname = request.POST.get('surname')
+        pict = request.FILES['pict']
+        age=request.POST.get('age')
+        console=request.POST.get('console')
+        country = request.POST.get('country')
+
+        # Aggiorna i campi del profilo dell'editore
+        if name:
+            player.name=name
+        if surname:
+            player.surname=surname
+        if age:
+            player.age=age
+        if console:
+            player.console=console
+        if country:
+            player.country=country    
+        if pict:
+            player.pict = pict
+        player.save()
+        registrazione_avvenuta = True  # Indica che la registrazione è andata a buon fine
+        return render(request, 'editplayerRegistration.html', {'registrazione_avvenuta': registrazione_avvenuta})
+
+    return render(request, 'editplayerRegistration.html', {'player': player})
 
 def player_profile(request,player_id):
     

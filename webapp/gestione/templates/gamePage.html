@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'basenav.html' %}
 
 {% block content %}
 
@@ -6,20 +6,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/gamestyle.css' %}">
 
     
-    <div class="navbar">        
-        <button class="dropbtn" onclick="window.location.href='/gestione/addGames'">Game Critics</button>
-        <button class="dropbtn" onclick="goBack()">go back</button>
 
-        <script>
-        function goBack() {
-          window.history.back();
-        }
-        </script>
-       
-    </div>
-    <p></p>
-    <p></p>
-    <p></p>
     <div class="row">
         
         <div class="game-card">

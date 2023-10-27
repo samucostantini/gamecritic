@@ -51,8 +51,8 @@ def view_page2(request):
             pass
         return publisher_registration(request)
 
-    # Se l'utente non è né un player né un publisher, devono registrarsi.
-    return render(request, template_name="ok.html")
+
+    return redirect("/")
     
 
 def view_page(request):

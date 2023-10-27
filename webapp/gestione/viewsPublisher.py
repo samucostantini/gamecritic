@@ -1,3 +1,5 @@
+
+import random
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
@@ -61,8 +63,13 @@ def edit_publisher_profile(request):
 def publisher_home(request):
      if request.user.groups.filter(name='Publisher').exists():
         publisher=Publisher.objects.get(user=request.user)
-        games = Game.objects.filter(publisher=publisher)
-        return render(request,"home_publisher.html",{'games': games, 'publisher':publisher})
+        games = list(Game.objects.filter(publisher=publisher))
+        
+        if len(games) >= 2:
+            random_games = random.sample(games, 2)
+        else:
+            random_games = games
+        return render(request,"home_publisher.html",{'games': random_games, 'publisher':publisher})
 
 
 def publisher_profile(request,publisher_id):
