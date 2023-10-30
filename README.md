@@ -36,6 +36,7 @@ SQLite has been used as the database engine for this project.<br>
 clone the project on a local directory on your computer.<br>
 open the terminal and go to project-directory.<br>
 run this command: "pipenv shell"<br>
+run "pip install -r requirements.txt" to download all the dependencies necessary to the project.<br>
 move to webapp directory and check if the file manage.py is there.<br>
 run : "python manage.py runserver" <br>
 on the terminal there should be https:..... copy and paste on your browser.<br>
