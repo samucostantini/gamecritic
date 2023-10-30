@@ -6,25 +6,25 @@ The project aims to create a web application to discover, browse, publicate, ana
 
 ## Techonologies and Feature overview
 ### Programming Language: 
-Python
+Python.
 
 ### Framework: 
-Django
+Django.
 
 ### Front-end Technologies:
-HTML
-CSS
-JavaScript
+HTML.
+CSS.
+JavaScript.
 
 ### Modules and Libraries:
 chart.js: Used for generating analysis charts.
 django-countries: Employed for handling countries during registration.
-djsngo-forms: used to manage user registration
+djsngo-forms: used to manage user registration.
 
 ### Template Optimizations:
 2 context_processors have been implemented for console and categories to avoid repetitive field definitions across different HTML pages.
-context_processor_console
-context_processor_category
+context_processor_console.
+context_processor_category.
 
 ### Image Processing:
 Images are processed using the Pillow library.
