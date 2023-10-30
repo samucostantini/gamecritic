@@ -29,14 +29,16 @@
         {% endfor %}
     </select><br>
 
+    <label for="console">Console:</label>
+        <select id="console" name="console" required>
+            {% for value, label in console_choices %}
+                <option value="{{ value }}">{{ label }}</option>
+            {% endfor %}
+        </select><br>
+
  
 
-        <label for="console">Console:</label>
-        <select id="console" name="console" required>
-            <option value="switch">Nintendo Switch</option>
-            <option value="ps">PlayStation</option>
-            <option value="xbox">Xbox</option>
-        </select><br>
+        
 
         <label for="pict">Profile Picture:</label>
         <input type="file" id="pict" name="pict" accept="image/*" required><br>

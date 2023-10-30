@@ -47,7 +47,7 @@
                             <p>You need to add this game before making a review.</p>
                     {% endif %}
 
-                <form method="post" enctype="multipart/form-data" action="/gestione/addGames/">
+                <form method="post" enctype="multipart/form-data" action="/gestione/addRemoveGame/">
                     {% csrf_token %}
                     {% if game in player.games.all %}
                     <input type="hidden" name="game_id" value="{{ game.id }}">

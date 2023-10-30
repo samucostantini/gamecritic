@@ -37,7 +37,7 @@ def player_registration2(request):
         surname = request.POST.get('surname')
         pict = request.FILES['pict']
         age=request.POST.get('age')
-        console=request.POST.get('console')
+        console = request.POST.getlist('console')
         country = request.POST.get('country')
 
         # Recupera l'utente autenticato
@@ -58,7 +58,7 @@ def player_registration(request):
         surname = request.POST.get('surname')
         pict = request.FILES['pict']
         age=request.POST.get('age')
-        console=request.POST.get('console')
+        console = request.POST.getlist('console')
         country = request.POST.get('country')
 
         # Recupera l'utente autenticato
@@ -83,7 +83,7 @@ def edit_player_profile(request):
         surname = request.POST.get('surname')
         pict = request.FILES['pict']
         age=request.POST.get('age')
-        console=request.POST.get('console')
+        console = request.POST.getlist('console')
         country = request.POST.get('country')
 
         # Aggiorna i campi del profilo dell'editore

@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django_countries.fields import CountryField
 
 from multiselectfield import MultiSelectField
+
 from .choices import *
 from django.db.models import Avg
 # Create your models here.
@@ -75,9 +76,14 @@ class Player(models.Model):
     surname=models.CharField(max_length=100)
     age=models.PositiveIntegerField()
     pict=models.ImageField(upload_to="static/player_img", blank=True, null=True,default="null")
-    console = models.CharField(max_length=20, choices=CONSOLE_CHOICES)  #valuta se togliere
+    console = models.CharField(max_length=255, choices=CONSOLE_CHOICES, blank=True, null=True)
     games=models.ManyToManyField(Game)
     country = CountryField()
+    
+    def get_consoles(self):
+        if self.console:
+            return ', '.join(self.console.split(','))
+        return ""
     
 
 class Review(models.Model):
