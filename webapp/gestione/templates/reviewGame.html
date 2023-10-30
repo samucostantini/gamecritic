@@ -45,9 +45,13 @@
         
     <script>
       {% if registrazione_avvenuta %}
-      var conferma = window.confirm("reviw successfully registered");
+      var conferma = window.confirm("review successfully registered");
       window.location.href = "/gestione/view_game_details/{{game.id}}";
   {% endif %}
+  {% if modifica_avvenuta %}
+  var conferma = window.confirm("review successfully modified");
+  window.location.href = "/gestione/view_game_details/{{game.id}}";
+{% endif %}
   </script>
     
     {% if error_message %}

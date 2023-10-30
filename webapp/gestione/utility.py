@@ -31,6 +31,8 @@ def average_rev(review,n):
     performance_rating=0
     gameplay_rating=0
     
+    if n==0:
+        return 0
     
     for r in review:
         plot_rating += r.plot_rating
@@ -55,6 +57,12 @@ def average_review_stat(review, n) :
     performance_rating=0
     gameplay_rating=0
     
+    if n==0:
+        return {
+        'plot' : plot_rating,
+        'gameplay' : gameplay_rating,
+        'music' : music_rating,
+        'performance' : performance_rating}
     
     for r in review:
         plot_rating += r.plot_rating

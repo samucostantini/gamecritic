@@ -17,19 +17,18 @@
             document.getElementById('player_name').addEventListener('input', function() {
                 var input = this.value.toLowerCase();
                 var suggestionsDiv = document.getElementById('suggestions');
-                var suggestions = []; // Esempio di suggerimenti
+                var suggestions = []; 
                 
                 
                 {% for player in players %}
                     suggestions.push("{{ player.user.username }}");
                 {% endfor %}
                 
-                // Rimuovi suggerimenti precedenti
                 while (suggestionsDiv.firstChild) {
                     suggestionsDiv.removeChild(suggestionsDiv.firstChild);
                 }
             
-                // Mostra suggerimenti
+               
                 suggestions.forEach(function(suggestion) {
                     if (suggestion.toLowerCase().indexOf(input) !== -1) {
                         var suggestionElement = document.createElement('div');

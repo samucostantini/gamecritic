@@ -29,7 +29,7 @@ urlpatterns = [
     path('allGame/',all_game,name="all_game"),
     
     #page per aggiungere giochi e recensioni
-    path('addGames/', view_add_game,name='view_add_game'),
+    path('addGames/', add_remove_game,name='view_add_game'),
     path('view_game_details/<int:game_id>/', view_game_details,name='view_game_details'),
     path('reviewGame/<int:game_id>/', review_game,name='review_game'),
     

@@ -237,6 +237,15 @@
         </div>
     </div>
     {%endif%}
-
+    <script>
+    {% if added_ok %}
+      var conferma = window.confirm("game successfully added");
+      window.location.href = "/gestione/view_game_details/{{game.id}}";
+    {% endif %}
+    {% if del_ok %}
+      var conferma = window.confirm("you deleted the game, review won't be deleted if exist");
+      window.location.href = "/gestione/view_game_details/{{game.id}}";
+    {% endif %}
+    </script>
 
 {% endblock %}

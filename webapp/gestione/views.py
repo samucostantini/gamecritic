@@ -124,8 +124,10 @@ def view_add_game(request):
         game = Game.objects.get(pk=game_id)
         if game in request.user.player.games.all():
             request.user.player.games.remove(game)
+            added_ok=True
         else:
             request.user.player.games.add(game)
+            del_ok=True
         
         return redirect('/gestione/view_game_details/'+game_id)
 
@@ -189,13 +191,17 @@ def add_remove_game(request):
         game_id = request.POST.get('game_id')
         player = request.user.player  # Assuming you have a one-to-one relationship between User and Player
         game = Game.objects.get(id=game_id)
+        added_ok=False
+        del_ok=False
 
         if game in player.games.all():
             player.games.remove(game)
+            del_ok=True
         else:
             player.games.add(game)
+            added_ok=True
 
-    return redirect('/gestione/addGames/')
+    return render(request, "addDel.html",{'game':game,'added_ok':added_ok, 'del_ok':del_ok})
 
 @login_required
 @user_passes_test(is_group_player_member)
@@ -258,7 +264,8 @@ def modify_review(request, review_id):
         # Crea una nuova recensione con i nuovi valori
         review = Review.objects.create(game=game, player=player, plot_rating=plot_rating, performance_rating=performance_rating, music_rating=music_rating, gameplay_rating=gameplay_rating, comment=comment)
         review.save()
-        return redirect('/gestione/view_game_details/'+str(game.id))
+        modifica_avvenuta = True
+        return render(request, 'reviewGame.html', {'game':game ,'modifica_avvenuta': modifica_avvenuta})
 
     return render(request, 'reviewGame.html', {'game': game, 'review': review})
     
