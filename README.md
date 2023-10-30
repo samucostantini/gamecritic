@@ -1,4 +1,4 @@
-# gamecritic
+# GameCritics
 
 ## Introduction
 GameCritics is a web application designed to expand user knowledge in the field of video games and keep them updated on new releases. <br>
