@@ -11,7 +11,10 @@ from django.contrib.auth.models import User
 from .choices import *
 from django.contrib.auth.decorators import user_passes_test
 
-
+from django.views import View
+from django.views.generic.edit import CreateView
+from .forms import *
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -73,6 +76,8 @@ def view_page(request):
 #-------------------------------------------#
 
 
+
+    
 #-------------------------------------------#
 @login_required
 @user_passes_test(is_group_publisher_member)
@@ -593,4 +598,5 @@ def analytics_game(request, game_id):
     return render(request, 'analyticsGame.html', {'occurrency':occurrency,'country':country_codes, 'av':av,
                                                   'game':game,'player':player, 'average_age':averageAge, 'n':n,'review':statList,'reviews':reviews})
         
+
 

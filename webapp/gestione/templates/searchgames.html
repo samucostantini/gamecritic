@@ -183,161 +183,28 @@
 
 
 {% block content %}
-<div class="search-bar">
-    <form method="post" action="/gestione/filterGamebyName/">
-        {% csrf_token %}
-        <div class="filter-item">
-        <label for="game_name"><h2>Game Name:</h2></label>
-        <input type="text" id="game_name" name="game_name">
-        <script>
-            document.getElementById('game_name').addEventListener('input', function() {
-                var input = this.value.toLowerCase();
-                var suggestionsDiv = document.getElementById('suggestions');
-                var suggestions = []; // Esempio di suggerimenti
-                
-                
-                {% for game in games %}
-                    suggestions.push("{{ game.titolo }}");
-                {% endfor %}
-                
-                // Rimuovi suggerimenti precedenti
-                while (suggestionsDiv.firstChild) {
-                    suggestionsDiv.removeChild(suggestionsDiv.firstChild);
-                }
-            
-                // Mostra suggerimenti
-                suggestions.forEach(function(suggestion) {
-                    if (suggestion.toLowerCase().indexOf(input) !== -1) {
-                        var suggestionElement = document.createElement('div');
-                        suggestionElement.textContent = suggestion;
-                        suggestionElement.addEventListener('click', function() {
-                            document.getElementById('game_name').value = suggestion;
-                            suggestionsDiv.style.display = 'none';
-                        });
-                        suggestionsDiv.appendChild(suggestionElement);
-                    }
-                });
-            
-                if (input === '') {
-                    suggestionsDiv.style.display = 'none';
-                } else {
-                    suggestionsDiv.style.display = 'block';
-                }
-            });
-        
-        
-        </script>
-        <button type="submit">Vai</button>
-        <div id="suggestions"></div>
-        </div>
-    </form>
-    <div class="green-strip">
-        <div class="dropdown">
-        <button class="dropbtn">GAME CRITICS</button>
-        </div>
+<div class="navbar">        
+    <button class="dropbtn" onclick="window.location.href='/gestione/'">Game Critics</button>
+    <button class="dropbtn" onclick="goBack()">go back</button>
 
-        <div class="dropdown">
-            <button class="dropbtn">Ordina per</button>
-            <div class="dropdown-content">
-                <a>
-                    <form id="filter-form" method="post" action="/gestione/filterGamesbyRate/">
-                    {% csrf_token %}
-                    <input type="hidden" name="sort_by" value="rating">
-                    <button class="invisible-button"type="submit">highest rating</button>
-                    </form>
-                </a>
-                <a>
-                    <form id="filter-form" method="post" action="/gestione/filterGamesbyRate/">
-                    {% csrf_token %}
-                    <input type="hidden" name="sort_by" value="priceA">
-                    <button class="invisible-button" type="submit">price:low to high</button>
-                    </form>
-                </a>
-                <a>
-                    <form id="filter-form" method="post" action="/gestione/filterGamesbyRate/">
-                    {% csrf_token %}
-                    <input type="hidden" name="sort_by" value="priceD">
-                    <button class="invisible-button" type="submit">price:high to low</button>
-                    </form>
-                </a>
-                <a>
-                    <form id="filter-form" method="post" action="/gestione/filterGamesbyRate/">
-                    {% csrf_token %}
-                    <input type="hidden" name="sort_by" value="added">
-                    <button class="invisible-button" type="submit">added</button>
-                    </form>
-                </a>
-                
-            </div>
-        </div>
-    </div>
-    
-
-    
+    <script>
+    function goBack() {
+      window.history.back();
+    }
+    </script>
    
 </div>
-</div>
 
+<br>
+<br>
 
 
 <div class="container">
-        
-    <div class="filter-menu">
-        <!-- Aggiungi qui i tuoi filtri -->
-        <form id="filter-form" method="post" action="/gestione/filterGames/">
-            {% csrf_token %}
-            <div class="filter-item">
-                <h2>Price Range</h2>
-                <label for="min_price">Min Price:</label>
-                <input type="number" id="min_price" name="min_price" min="0"><br><br>
-                <label for="max_price">Max Price:</label>
-                <input type="number" id="max_price" name="max_price" min="0">
-                <p id="price-error" style="color: red; font-size: 12px; display: none;">Il prezzo massimo deve essere maggiore o uguale al prezzo minimo.</p>
-            </div>
-            <button type="submit">Vai</button>
-        
-        
-       
-
-        
-            {% csrf_token %}
-            
-            <div class="filter-item">
-                <h2>Console</h2>
-                <select id="console-filter" name="console-filter">
-                    {% for value, label in console_choices %}
-                        <option value="{{ value }}">{{ label }}</option>
-                    {% endfor %}
-                
-                
-            </select>
-        </div>
-        <button type="submit">Vai</button>
-        
-
-        
-            {% csrf_token %}
-            
-            <div class="filter-item">
-                <h2>Category</h2>
-                <select id="category-filter" name="category-filter">
-                    {% for value, label in category_choices %}
-                        <option value="{{ value }}">{{ label }}</option>
-                    {% endfor %}
-                
-                
-            </select>
-        </div>
-        <button type="submit">Vai</button>
-        </form>
-
-    
-
-    </div>
-
         <div class="product-container">
             <div class="game-list">
+                <br>
             <h1>Top Games</h1>
+            <h3>most added games:</h3>
             <div class="column">
                 {% for game in top_games %}
                     

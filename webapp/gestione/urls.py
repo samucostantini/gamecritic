@@ -1,6 +1,6 @@
 from django.urls import include,path
 from django.contrib import admin
-
+from .forms import *
 from .views import *
 from .viewsPlayer import *
 from .viewsPublisher import *
@@ -40,7 +40,7 @@ urlpatterns = [
     path('gameStat/<int:game_id>/',show_game_stat,name='show_game_stat'),
     path('gameAnalytics/<int:game_id>/',analytics_game,name='analytics_game'),
 
-    path('gameRecm/',game_recommended,name="game_recommended"),
+    path('gameRecm/',new_test,name="game_recommended"),
     path('myGames/',my_games,name="my_games"),
     
     path('modifyReview/<int:review_id>/',modify_review,name='modify_review'),
@@ -55,6 +55,5 @@ urlpatterns = [
     path('publishersPage/',search_publisher,name='search_publisher'),
     
     path('addRemoveGame/',add_remove_game,name='add_remove_game'),
-    
-    
+
 ]
