@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Group
 from django.contrib.auth.models import User
-
+from gestione.models import Player
 class CreateUser(UserCreationForm):
     class Meta:
         model = User

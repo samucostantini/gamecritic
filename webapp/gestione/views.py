@@ -24,16 +24,32 @@ from django.urls import reverse_lazy
 #@user_passes_test(is_group_player_member)
 #metti questo codice sopra la funzione da proteggere
 
+
+#previous ->just check group
 def is_group_publisher_member(user):
-    return user.groups.filter(name='Publisher').exists()
+    if user.groups.filter(name='Publisher').exists():
+        try:
+            publisher = Publisher.objects.get(user=user)
+            return publisher.website is not None and publisher.website != ''
+        except Publisher.DoesNotExist:
+            pass
+
+    return False
+
 
 def is_group_player_member(user):
-    return user.groups.filter(name='Player').exists()
+    if user.groups.filter(name='Player').exists():
+        try:
+            player = Player.objects.get(user=user)
+            return player.name is not None and player.name != ''
+        except Player.DoesNotExist:
+            pass
+
+    return False
+
 
 def view_page2(request):
-    
-    #guarda se esiste una entry per lo user come player
-    #se esiste controlla se la entry è gia popolata
+
     if request.user.groups.filter(name='Player').exists():
         try:
             player = Player.objects.get(user=request.user)
