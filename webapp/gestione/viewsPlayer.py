@@ -12,12 +12,26 @@ from .forms import *
 
 from django.contrib.auth.models import User
 
-# Create your views here.
 def is_group_publisher_member(user):
-    return user.groups.filter(name='Publisher').exists()
+    if user.groups.filter(name='Publisher').exists():
+        try:
+            publisher = Publisher.objects.get(user=user)
+            return publisher.website is not None and publisher.website != ''
+        except Publisher.DoesNotExist:
+            pass
+
+    return False
+
 
 def is_group_player_member(user):
-    return user.groups.filter(name='Player').exists()
+    if user.groups.filter(name='Player').exists():
+        try:
+            player = Player.objects.get(user=user)
+            return player.name is not None and player.name != ''
+        except Player.DoesNotExist:
+            pass
+
+    return False
 
 @login_required
 def player_home(request):
