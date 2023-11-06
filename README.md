@@ -12,6 +12,7 @@ Python.
 Django.
 
 ### Front-end Technologies:
+DTL. <br>
 HTML. <br>
 CSS. <br>
 JavaScript. <br>
