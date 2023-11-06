@@ -173,6 +173,14 @@
             </select>
         </div>
         <button type="submit">Vai</button>
+
+       
+        <div class="filter-item">
+        {% csrf_token %}
+        <!-- Altri campi del tuo form... -->
+        <button class="dropbtn" type="submit" name="clear-b" value="1">clear</button>
+        </div>
+
         </form>
 
     

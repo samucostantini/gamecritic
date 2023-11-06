@@ -248,6 +248,7 @@ def filter_game_by_price(request):
         console = request.POST.get('console-filter')
         category=request.POST.get('category-filter')
         pub=request.POST.get('pub-filter')
+        clear=request.POST.get('clear-b')
         if min:
             min = float(min)
         else:
@@ -258,11 +259,20 @@ def filter_game_by_price(request):
         else:
             max = 1000
 
-        
+    if clear:
+        p=Publisher.objects.all()
+        games=Game.objects.all()
+        request.session['filtered_games'] = [game.id for game in games]
+        return render(request, 'addgamePub.html', {'games': games, 'p':p})
     
-    games = Game.objects.all()
-    filtered_games = list(games)  
-
+    filtered_games = request.session.get('filtered_games', [])
+    if not filtered_games:
+        filtered_games=Game.objects.all()
+    else:
+        filtered_games=Game.objects.filter(id__in=filtered_games)
+    
+   
+    
 
     if min >= 0 and max < 1000:
         filtered_games = [g for g in filtered_games if min <= g.price <= max]
@@ -301,7 +311,7 @@ def filter_game_by_rating(request):
     return render(request, 'addgamePub.html', {'games': games, 'p':p})
         
 def filter_game_by_name(request):
-    games=Game.objects.all()
+   
     if request.method=='POST':
         title=request.POST.get('game_name')
         games = Game.objects.filter(Q(titolo=title) | Q(titolo__startswith=title))
