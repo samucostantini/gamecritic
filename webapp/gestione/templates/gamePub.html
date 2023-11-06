@@ -31,6 +31,11 @@
                         <form method="get" action="/gestione/gameAnalytics/{{game.id}}">
                             <button type="submit">View Stats</button>
                         </form>
+                        <form method="get" action="/gestione/deleteGame/{{game.id}}">
+                                {% csrf_token %}
+                            <input type="hidden" name="game_id" value={{game.id}} />
+                            <button type="submit">Delete</button>
+                        </form>
 
 
                     </div>
@@ -87,4 +92,8 @@
     // Mostra i primi giochi all'avvio
     showGames(currentIndex);
 </script>
+
+{%if deleted_ok%}
+{{deleted_ok}}
+{%endif%}
 {% endblock %}

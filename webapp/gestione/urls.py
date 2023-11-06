@@ -25,6 +25,7 @@ urlpatterns = [
     #path('publisherProfile/<int:publisher_id>/', publisher_profile, name='publisher_profile'),
     path('gameReg/', game_registration, name='game_registration'),
     path('gamePub/', show_publisher_game, name='show_publisher_game'),
+    path('deleteGame/<int:game_id>',delete_game,name='delete_game'),
     
     #path('home2/',all_game,name="home2"),
     path('allGame/',all_game,name="all_game"),

@@ -103,7 +103,17 @@ def publisher_profile(request,publisher_id):
 
 @login_required
 def show_publisher_game(request):
+    if request.method == 'POST':
+        game_id=request.POST.get('game_id')
+        publisher=Publisher.objects.get(user=request.user)
+        game=Game.objects.get(id=game_id)
+        if game.publisher==publisher:
+            game.delete()
+            games = Game.objects.filter(publisher=Publisher.objects.get(user=request.user))
+            deleted_ok="game deleted"
+            return render(request, 'gamePub.html', {'games': games, 'deleted_ok':deleted_ok})
     games = Game.objects.filter(publisher=Publisher.objects.get(user=request.user))
+
     return render(request, 'gamePub.html', {'games': games})
 
 def show_game_stat(request, game_id):
@@ -131,6 +141,16 @@ def show_allGames_stat(request):
 
     return render(request,'analyticsAll.html',{'games_added':games_added, 'games_rating':games_rating})
     
-
-
-
+@user_passes_test(is_group_publisher_member)
+def delete_game(request, game_id):
+    
+    publisher=Publisher.objects.get(user=request.user)
+    game=Game.objects.get(id=game_id)
+    
+    if request.method == 'POST':
+        if game.publisher==publisher:
+            game.delete()
+            return redirect('/gestione/gamePub/')
+    return render(request, 'deleteGame.html')
+    
+        
