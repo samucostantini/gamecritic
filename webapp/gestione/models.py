@@ -19,7 +19,7 @@ from django.db.models import Avg
 
 class Publisher(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     website=models.CharField(max_length=100)
     pict=models.ImageField(upload_to="static/publisher_img",blank=True, null=True,default="null")
     

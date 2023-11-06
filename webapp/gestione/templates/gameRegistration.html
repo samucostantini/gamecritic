@@ -57,6 +57,9 @@
         <input type="file" id="images" name="images" accept="image/*" multiple ><br>
         
         <input type="submit" value="Register" onclick="okRegister()">
+        {% if error_message %}
+          <div style="color: red;">{{ error_message }}</div>
+        {% endif %}
 
         
   <script>
@@ -67,4 +70,6 @@
 </script>
     </form>
 </div>
+
+
 {% endblock %}

@@ -106,17 +106,31 @@ def game_registration(request):
         age=request.POST.get('age')
         console=request.POST.get('console')
         description=request.POST.get('description')
-        
-    
         publisher=Publisher.objects.get(user=request.user)
-        game = Game(titolo=titolo, publisher=publisher, price=price, category=category, pict=pict, age=age, console=console, description=description)
-        game.save()
+        if Game.objects.filter(titolo=titolo, console=console).exists():
+            error_message = "this game is already avaible for the specificated console"
+            return render(request, 'gameRegistration.html', {'error_message': error_message})
+        
+        if Game.objects.filter(titolo=titolo).exists():
+            game=Game.objects.get(titolo=titolo)
+            if game.publisher != publisher:
+                error_message = "name already registered by other publisher"
+                return render(request, 'gameRegistration.html', {'error_message': error_message})
         
         images = request.FILES.getlist('images')
 
         # Controlla se sono state caricate meno di 10 immagini
         if len(images) > 10:
-            return HttpResponse("Puoi caricare al massimo 10 immagini.")
+            error_message = "max 10 images"
+            return render(request, 'gameRegistration.html', {'error_message': error_message})
+    
+        
+        game = Game(titolo=titolo, publisher=publisher, price=price, category=category, pict=pict, age=age, console=console, description=description)
+        game.save()
+        
+      
+        
+        
 
         # Salva le immagini e associale al gioco
         for image in images:
@@ -168,7 +182,7 @@ def view_game_details(request, game_id):
     p=Player.objects.filter(games=game)
     n=len(p)
     
-    if is_group_publisher_member(request.user):
+    if is_group_publisher_member(request.user) or not is_group_player_member(request.user):
         if request.method == "POST" and "sort_by" in request.POST:
             sort_by = request.POST["sort_by"]
             if sort_by == "asc":
@@ -224,73 +238,7 @@ def add_remove_game(request):
 
     return render(request, "addDel.html",{'game':game,'added_ok':added_ok, 'del_ok':del_ok})
 
-@login_required
-@user_passes_test(is_group_player_member)
-def review_game(request, game_id):
-    game = Game.objects.get(pk=game_id)
-    player=Player.objects.get(user=request.user)
-    if request.method == 'POST':
-        if game not in player.games.all():
-            error_message = "Non puoi recensire un gioco che non è nella tua lista."
-            return render(request, 'ok.html', {'game': game, 'error_message': error_message})
-        
-        player=Player.objects.get(user=request.user)
-        plot_rating = request.POST.get('plot_rating')
-        gameplay_rating = request.POST.get('gameplay_rating')
-        performance_rating = request.POST.get('performance_rating')
-        music_rating = request.POST.get('music_rating')
-        comment = request.POST.get('notes')
-        
-        try:
-            review = Review.objects.create(game=game, player=player, plot_rating=plot_rating, performance_rating=performance_rating, music_rating=music_rating, gameplay_rating=gameplay_rating, comment=comment)
-            review.save()
-            registrazione_avvenuta = True  # Indica che la registrazione è andata a buon fine
-            return render(request, 'reviewGame.html', {'game':game ,'registrazione_avvenuta': registrazione_avvenuta})
-            #return redirect('/gestione/addGames')
-        except IntegrityError:
-            error_message = "Hai già recensito questo gioco."
-            return render(request, 'reviewGame.html', {'game': game, 'error_message': error_message})
-    return render(request, 'reviewGame.html', {'game': game})
 
-@login_required
-@user_passes_test(is_group_player_member)
-def delete_review(request, review_id):
-    review=Review.objects.get(id=review_id)
-    game=review.game
-    if request.method == 'POST':
-        review.delete()
-        return redirect('/gestione/view_game_details/'+str(game.id))
-    return render(request, 'deleteReview.html', {'review': review})
-
-@login_required
-@user_passes_test(is_group_player_member)
-def modify_review(request, review_id):
-    review=Review.objects.get(id=review_id)
-    player = Player.objects.get(user=request.user)
-    game=review.game
-    
-    if request.method == 'POST':
-        
-        
-        plot_rating = request.POST.get('plot_rating')
-        gameplay_rating = request.POST.get('gameplay_rating')
-        performance_rating = request.POST.get('performance_rating')
-        music_rating = request.POST.get('music_rating')
-        comment = request.POST.get('notes')
-
-        # Elimina la vecchia recensione
-        review.delete()
-        
-
-        # Crea una nuova recensione con i nuovi valori
-        review = Review.objects.create(game=game, player=player, plot_rating=plot_rating, performance_rating=performance_rating, music_rating=music_rating, gameplay_rating=gameplay_rating, comment=comment)
-        review.save()
-        modifica_avvenuta = True
-        return render(request, 'reviewGame.html', {'game':game ,'modifica_avvenuta': modifica_avvenuta})
-
-    return render(request, 'reviewGame.html', {'game': game, 'review': review})
-    
-    
 
 
 def filter_game_by_price(request):

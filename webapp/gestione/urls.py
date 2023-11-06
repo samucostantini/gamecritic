@@ -4,6 +4,7 @@ from .forms import *
 from .views import *
 from .viewsPlayer import *
 from .viewsPublisher import *
+from .viewsReview import *
 
 app_name='gestione'
 

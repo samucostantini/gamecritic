@@ -23,8 +23,12 @@
           var conferma = window.confirm("player successfully registered");
           window.location.href = "/gestione/publisherHome";
         {% endif %}
+        
       </script>
         
     </form>
+    {% if error_message %}
+          <div style="color: red;">{{ error_message }}</div>
+        {% endif %}
 </div>
 {% endblock %}

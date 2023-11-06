@@ -45,6 +45,10 @@ def publisher_registration(request):
 
         # Recupera l'utente autenticato
         user = request.user
+        
+        if Publisher.objects.filter(name=name).exists():
+            error_message = "Name already taken."
+            return render(request, 'publisherRegistration.html', {'error_message': error_message})
 
         # Crea il profilo dell'editore
         publisher = Publisher(user=user, name=name, website=website, pict=pict)
