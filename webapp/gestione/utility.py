@@ -148,7 +148,6 @@ def sort_games_by_most_added(games):
         game_counts[g]=n
     sorted_games = sorted(game_counts.keys(), key=lambda x: game_counts[x], reverse=True)
     
-
     return sorted_games
     
 
