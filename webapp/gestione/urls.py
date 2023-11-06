@@ -54,7 +54,9 @@ urlpatterns = [
     path('analyzeAll/',show_allGames_stat,name='show_allGames_stat'),
     
     path('playersPage/',search_player,name='search_player'),
+    path('filterPlayerbyName/',filterPlayerbyName,name='filterPlayerbyName'),
     path('publishersPage/',search_publisher,name='search_publisher'),
+    path('filterPublisherbyName/',filterPublisherbyName,name='filterPublisherbyName'),
     
     path('addRemoveGame/',add_remove_game,name='add_remove_game'),
 

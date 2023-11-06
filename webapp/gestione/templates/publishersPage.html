@@ -10,11 +10,11 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/stile.css' %}">
 
 <div class="search-bar">
-    <form method="post" action="/gestione/filterPlayerbyName/">
+    <form method="post" action="/gestione/filterPublisherbyName/">
         {% csrf_token %}
         <div class="filter-item">
         <label for="player_name"><h2>Publisher Name:</h2></label>
-        <input type="text" id="player_name" name="player_name">
+        <input type="text" id="publisher_name" name="publisher_name">
         <script>
             document.getElementById('player_name').addEventListener('input', function() {
                 var input = this.value.toLowerCase();
@@ -106,7 +106,10 @@
                     <img src="{{ publisher.pict.url }}" alt="{{ publisher.user.username }}">
                     <div class="game-card-info">
                         <h1>{{ publisher.name }}</h1>
+                        {%if is_an%}
+                        {%else%}
                         <p>Added Games: {{ common_games_count }}</p>
+                        {%endif%}
                         <form method="get" action="/gestione/publisherProfile/{{publisher.id}}">
                             <button type="submit">View</button>
                         </form>

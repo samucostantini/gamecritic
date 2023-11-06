@@ -112,7 +112,9 @@
                             {%if is_pub%}
                             <p> this player added {{count}} of your game/s </p>
                             {%else%}
+                            {%if count > 0%}
                             <p>you have {{count}} game/s in common</p>
+                            {%endif%}
                             {%endif%}
                             
                             

@@ -464,6 +464,36 @@ def search_player(request):
     
     return render(request, 'playersPage.html', {'players': players_game,'p1':p1})
 
+def filterPlayerbyName(request):
+    if request.method=='POST':
+        title=request.POST.get('player_name')
+        players = Player.objects.filter(Q(user__username=title) | Q(user__username__startswith=title))
+        
+        if is_group_player_member(request.user):
+            p1=Player.objects.get(user=request.user)
+            matching_players=players.exclude(id=p1.id)
+            p1_games=set(p1.games.all())
+            players_game={}
+            for p in matching_players:
+                gamep = set(p.games.all())
+                common_games = p1_games.intersection(gamep)
+                players_game[p] = len(common_games)
+            return render(request, 'playersPage.html', {'players': players_game})
+        if is_group_publisher_member(request.user):
+            is_pub=1
+            publisher=Publisher.objects.get(user=request.user)
+           
+            games=Game.objects.filter(publisher=publisher)
+            players_game={}
+            for p in players:
+                players_game[p]= len(Game.objects.filter(publisher=publisher, id__in=p.games.all()))
+            return render(request, 'playersPage.html', {'players': players_game, 'is_pub':is_pub})
+        else:
+            players_game={}
+            for p in players:
+                players_game[p]=0
+            return render(request,'playersPage.html', {'players': players_game})
+        
 
 def search_publisher(request):
     publishers=Publisher.objects.all()
@@ -482,11 +512,6 @@ def search_publisher(request):
 
             return render(request, 'publishersPage.html', {'publisher_game':publisher_game_sorted,'is_an':is_an})
         return render(request, 'publishersPage.html', {'publisher_game':publisher_game,'is_an':is_an})
-    
-  
-    
-            
-        
         
     p1=Player.objects.get(user=request.user)
     
@@ -514,6 +539,34 @@ def search_publisher(request):
         return render(request, 'publishersPage.html', {'publisher_game':publisher_game_sorted, 'p1':p1})
     
     return render(request, 'publishersPage.html', {'publisher_game':publisher_game, 'p1':p1})
+
+def filterPublisherbyName(request):
+    if request.method=='POST':
+        title=request.POST.get('publisher_name')
+        publishers = Publisher.objects.filter(Q(name=title) | Q(name__startswith=title))
+        if request.user.is_anonymous or request.user.groups.filter(name='Publisher').exists():
+            is_an=1
+            publisher_game={}
+            for publisher in publishers:
+                publisher_game[publisher]=0
+            return render(request, 'publishersPage.html', {'publisher_game':publisher_game,'is_an':is_an})
+        else:
+            p1=Player.objects.get(user=request.user)
+            usergames=set(p1.games.all())
+            publisher_game={}
+    
+            for publisher in publishers:
+                game=Game.objects.filter(publisher=publisher)
+                count=0
+                for g in game:
+                    for g1 in usergames:
+                        if g==g1:
+                            count +=1
+                publisher_game[publisher]=count
+            return render(request, 'publishersPage.html', {'publisher_game':publisher_game, 'p1':p1})
+            
+            
+        
 
 
 @login_required
